@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Vehicle</string>
+    <string name="login_phone">手机号登录</string>
+    <string name="phone">手机号码</string>
+    <string name="phone2">请输入手机号码</string>
+    <string name="num">+86</string>
+    <string name="psw">密码</string>
+    <string name="psw2">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="forget">忘记密码</string>
+</resources>
