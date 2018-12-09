@@ -25,10 +25,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.example.yangsong.piaoai.R;
-import com.example.yangsong.piaoai.zxing.activity.CaptureActivity;
-import com.example.yangsong.piaoai.zxing.camera.CameraManager;
-import com.example.yangsong.piaoai.zxing.view.ViewfinderResultPointCallback;
+import com.example.administrator.vehicle.R;
+import com.example.administrator.vehicle.zxing.activity.CaptureActivity;
+import com.example.administrator.vehicle.zxing.camera.CameraManager;
+import com.example.administrator.vehicle.zxing.view.ViewfinderResultPointCallback;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 

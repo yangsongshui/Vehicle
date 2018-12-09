@@ -22,10 +22,10 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
-import com.example.yangsong.piaoai.R;
-import com.example.yangsong.piaoai.zxing.activity.CaptureActivity;
-import com.example.yangsong.piaoai.zxing.camera.CameraManager;
-import com.example.yangsong.piaoai.zxing.camera.PlanarYUVLuminanceSource;
+import com.example.administrator.vehicle.R;
+import com.example.administrator.vehicle.zxing.activity.CaptureActivity;
+import com.example.administrator.vehicle.zxing.camera.CameraManager;
+import com.example.administrator.vehicle.zxing.camera.PlanarYUVLuminanceSource;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;

@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends AppCompatActivity {
     //添加到活动管理集合中
     {
-        MyApplication.newInstance().addActyToList(this);
+      //  MyApplication.newInstance().addActyToList(this);
     }
 
     @Override

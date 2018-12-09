@@ -26,12 +26,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.yangsong.piaoai.R;
-import com.example.yangsong.piaoai.zxing.camera.CameraManager;
-import com.example.yangsong.piaoai.zxing.decoding.CaptureActivityHandler;
-import com.example.yangsong.piaoai.zxing.decoding.InactivityTimer;
-import com.example.yangsong.piaoai.zxing.decoding.RGBLuminanceSource;
-import com.example.yangsong.piaoai.zxing.view.ViewfinderView;
+import com.example.administrator.vehicle.R;
+import com.example.administrator.vehicle.zxing.camera.CameraManager;
+import com.example.administrator.vehicle.zxing.decoding.CaptureActivityHandler;
+import com.example.administrator.vehicle.zxing.decoding.InactivityTimer;
+import com.example.administrator.vehicle.zxing.decoding.RGBLuminanceSource;
+import com.example.administrator.vehicle.zxing.view.ViewfinderView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;

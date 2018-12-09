@@ -19,7 +19,7 @@ package com.example.administrator.vehicle.zxing.decoding;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.example.yangsong.piaoai.zxing.activity.CaptureActivity;
+import com.example.administrator.vehicle.zxing.activity.CaptureActivity;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.ResultPointCallback;

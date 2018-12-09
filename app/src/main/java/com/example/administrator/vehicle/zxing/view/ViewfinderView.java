@@ -32,8 +32,8 @@ import android.graphics.SweepGradient;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.example.yangsong.piaoai.R;
-import com.example.yangsong.piaoai.zxing.camera.CameraManager;
+import com.example.administrator.vehicle.R;
+import com.example.administrator.vehicle.zxing.camera.CameraManager;
 import com.google.zxing.ResultPoint;
 
 import java.util.Collection;

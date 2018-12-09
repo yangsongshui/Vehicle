@@ -33,8 +33,7 @@ public class MainActivity extends BaseActivity {
     }
 
 
-
-    @OnClick({R.id.select_num, R.id.login, R.id.login_register, R.id.login_forget})
+    @OnClick({R.id.select_num, R.id.login, R.id.login_register, R.id.login_forget,R.id.login_wechat})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.select_num:
@@ -44,6 +43,8 @@ public class MainActivity extends BaseActivity {
             case R.id.login_register:
                 break;
             case R.id.login_forget:
+                break;
+            case R.id.login_wechat:
                 break;
         }
     }
