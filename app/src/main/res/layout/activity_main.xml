@@ -68,7 +68,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="@dimen/dp_10"
             android:background="@null"
+
             android:hint="@string/phone2"
             android:textColorHint="@color/white3" />
 
@@ -105,6 +107,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_25"
         android:background="@null"
+        android:inputType="textPassword"
+        android:padding="@dimen/dp_10"
         android:layout_marginEnd="@dimen/dp_25"
         android:hint="@string/psw2"
         android:textColorHint="@color/white3" />

@@ -6,17 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
 
-
-import com.example.administrator.vehicle.app.MyApplication;
-
 import butterknife.ButterKnife;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
     //添加到活动管理集合中
-    {
-      //  MyApplication.newInstance().addActyToList(this);
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         init(savedInstanceState);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        MyApplication.newInstance().removeActyFromList(this);
-    }
+
 
 
     //注入布局

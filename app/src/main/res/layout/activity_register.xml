@@ -12,6 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+
             android:id="@+id/register_left_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,6 +22,7 @@
             android:src="@drawable/back" />
 
         <TextView
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -89,7 +91,7 @@
             android:src="@drawable/forgot_del" />
     </LinearLayout>
 
-    <ImageView
+    <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
         android:layout_gravity="center"
@@ -115,13 +117,78 @@
         android:layout_marginEnd="@dimen/dp_25"
         android:hint="@string/psw2"
         android:background="@null"
+        android:inputType="textPassword"
         android:padding="@dimen/dp_10"
         android:textColorHint="@color/hei2" />
-    <ImageView
+    <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
         android:layout_gravity="center"
         android:layout_marginStart="@dimen/dp_25"
         android:layout_marginEnd="@dimen/dp_25"
         android:background="@color/white6" />
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="wrap_content"
+        android:text="@string/code_msg"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_marginStart="@dimen/dp_25"
+        android:textColor="@color/hei"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_25"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="@string/code_msg2"
+        android:textColor="@color/hei"
+        android:textSize="@dimen/sp_12" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/dp_25"
+        android:layout_marginEnd="@dimen/dp_25"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/code"
+            style="style/regTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:padding="10dp"
+            android:hint="@string/code_msg3"
+            android:textColorHint="@color/hei2" />
+        <TextView
+            android:id="@+id/get_code"
+            android:layout_width="wrap_content"
+            android:text="@string/get_coede"
+            android:gravity="center"
+            android:textColor="@color/porcelain"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/dp_25"
+        android:layout_marginEnd="@dimen/dp_25"
+        android:background="@color/white6" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/complete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_25"
+            android:background="@drawable/reg_bt"
+            android:text="@string/reg"
+            android:textColor="@color/white" />
+    </LinearLayout>
 </LinearLayout>

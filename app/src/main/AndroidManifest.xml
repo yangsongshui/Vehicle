@@ -31,7 +31,8 @@
         <activity
             android:name=".zxing.activity.CaptureActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".ui.RegisterActivity"></activity>
+        <activity android:name=".ui.RegisterActivity" />
+        <activity android:name=".ui.HomeActivity"></activity>
     </application>
 
 </manifest>

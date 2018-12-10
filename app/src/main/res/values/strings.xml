@@ -10,7 +10,18 @@
     <string name="login">登录</string>
     <string name="register">注册</string>
     <string name="register_title">手机号注册</string>
+    <string name="register_title2">忘记密码</string>
     <string name="forget">忘记密码</string>
     <string name="scanner_msg9">扫描设备</string>
     <string name="scanner_msg">将二维码和条形码放入识别框</string>
+    <string name="code_msg">为了校验安全，我们会向你的手机发送短信验证码</string>
+    <string name="code_msg2">验证码</string>
+    <string name="code_msg3">请输入验证码</string>
+    <string name="get_coede">发送验证码</string>
+    <string name="get_coede2">从新发送</string>
+    <string name="reg">完成</string>
+    <string name="home_label">车辆</string>
+    <string name="home_label2">车况</string>
+    <string name="home_label3">社区</string>
+    <string name="home_label4">我的</string>
 </resources>
