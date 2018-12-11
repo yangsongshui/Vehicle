@@ -4,61 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white6"
     tools:context=".ui.HomeActivity">
+    <com.example.administrator.vehicle.widget.MyViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/home_rg"/>
 
     <RadioGroup
+        android:id="@+id/home_rg"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:background="@drawable/label_bg"
+        android:layout_height="@dimen/dp_55"
         android:layout_alignParentBottom="true"
-
-        android:layout_height="wrap_content">
+        android:background="@color/white"
+        android:orientation="horizontal">
 
 
         <RadioButton
+            android:id="@+id/home_liang_rb"
+            style="@style/homeRb"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@null"
-            android:drawablePadding="@dimen/dp_3"
-            android:layout_gravity="bottom"
             android:drawableTop="@drawable/home_label"
-            android:gravity="center"
             android:text="@string/home_label" />
-        <RadioButton
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:drawableTop="@drawable/home_label2"
-            android:button="@null"
-            android:layout_gravity="bottom"
-            android:gravity="center"
-            android:drawablePadding="@dimen/dp_3"
-            android:text="@string/home_label2"
-            android:layout_height="wrap_content" />
-        <RadioButton
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:layout_height="wrap_content" />
 
         <RadioButton
+            android:id="@+id/home_kuang_rb"
+            style="@style/homeRb"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:button="@drawable/home_label3"
-            android:gravity="center"
-            android:layout_gravity="bottom"
-            android:drawablePadding="@dimen/dp_3"
-            android:text="@string/home_label"
-            android:layout_height="wrap_content" />
-        <RadioButton
+            android:drawableTop="@drawable/home_label2"
+            android:text="@string/home_label2" />
+
+        <ImageView
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white" />
+
+        <RadioButton
+            android:id="@+id/home_qu_rb"
+            style="@style/homeRb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/home_label3"
+            android:text="@string/home_label3" />
+
+        <RadioButton
+            android:id="@+id/home_wo_rb"
+            style="@style/homeRb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableTop="@drawable/home_label4"
-            android:button="@null"
-            android:gravity="center"
-            android:layout_gravity="bottom"
-            android:drawablePadding="@dimen/dp_3"
-            android:text="@string/home_label4"
-            android:layout_height="wrap_content" />
+            android:text="@string/home_label4" />
     </RadioGroup>
+
+    <ImageView
+        android:id="@+id/home_jian"
+        android:layout_width="@dimen/dp_75"
+        android:layout_height="@dimen/dp_75"
+        android:padding="@dimen/dp_8"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:background="@drawable/home_bt"
+        android:src="@drawable/label_logo" />
+
+
+
 </RelativeLayout>

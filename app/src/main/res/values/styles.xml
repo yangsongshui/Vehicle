@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/dinmd</item>
     </style>
 
     <style name="ToolbarRightText">
@@ -13,7 +14,12 @@
         <item name="android:textSize">14sp</item>
     </style>
 
-
+    <style name="homeRb">
+        <item name="android:button">@null</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:drawablePadding">@dimen/dp_3</item>
+        <item name="android:gravity">center</item>
+    </style>
 
 
 
