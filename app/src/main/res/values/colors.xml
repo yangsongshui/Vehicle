@@ -13,13 +13,13 @@
     <color name="hei2">#40090d0c</color>
     <color name="bg_bottom_navigation">#f7f7f7</color>
     <color name="white">#ffffff</color>
-    <color name="porcelain">#25c48a</color>
+    <color name="electric_blue">#FDFA67</color>
+    <color name="havelock_blue">#8DD99C</color>
+    <color name="porcelain">#ED4D45</color>
 
     <color name="silver_sand">#f5f5f5</color>
     <color name="bright_gray">#4e4c53</color>
-    <color name="havelock_blue">#40b3e7</color>
     <color name="malibu">#3990e9</color>
-    <color name="electric_blue">#33f8ff</color>
     <color name="baby_blue_eyes">#94ffffff</color>
     <color name="zircon">#DDE1E5</color>
     <color name="zumthor">#EDF6FC</color>
