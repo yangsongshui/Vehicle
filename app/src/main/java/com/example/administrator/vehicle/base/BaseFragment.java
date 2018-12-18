@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+
 public abstract class BaseFragment extends Fragment {
     private static final String TAG = BaseFragment.class.getName();
     protected View layout;

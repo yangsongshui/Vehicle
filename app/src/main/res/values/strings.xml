@@ -32,4 +32,15 @@
     <string name="home_dan2">Km</string>
     <string name="home_dan3">分钟</string>
     <string name="home_dan4">L</string>
+    <string name="home_dan5">Km/h</string>
+    <string name="home_dan6">rpm</string>
+    <string name="home_dan7">L/100Km</string>
+    <string name="home_youhao">瞬间油耗量</string>
+    <string name="home_chesu">最高车速</string>
+    <string name="home_zhuansu">最高转速</string>
+    <string name="home_data5">本次行驶里程</string>
+    <string name="home_data6">行驶车速</string>
+    <string name="home_data7">平均油耗量</string>
+    <string name="home_data8">汽车服务</string>
+    <string name="home_data9">接车</string>
 </resources>

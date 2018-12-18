@@ -187,11 +187,7 @@
             android:background="@drawable/main_data_b_1_bg"
             android:orientation="vertical">
 
-            <com.example.administrator.vehicle.widget.CircleProgressBar
-                android:id="@+id/color_progress_view"
-                android:layout_width="@dimen/dp_90"
-                android:layout_height="@dimen/dp_90"
-                />
+
         </LinearLayout>
 
         <LinearLayout

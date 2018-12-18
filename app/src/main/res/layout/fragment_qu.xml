@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".ui.fragment.QuFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
 
-</FrameLayout>
+
+        <com.ocnyang.pagetransformerhelp.BannerViewPager
+            android:id="@+id/viewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_200"
+            app:layout_constraintDimensionRatio="19:10"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+
+</LinearLayout>
