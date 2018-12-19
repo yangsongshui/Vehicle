@@ -29,7 +29,10 @@
             tl:tl_textUnselectColor="#66090d0c"
             tl:tl_textsize="@dimen/sp_15" />
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/baby_blue_eyes"
+        android:layout_height="@dimen/dp_1"/>
     <FrameLayout
         android:id="@+id/kuang_fl"
         android:layout_width="match_parent"

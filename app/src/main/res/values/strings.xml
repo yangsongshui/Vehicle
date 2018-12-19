@@ -56,7 +56,13 @@
     <string name="gu_data7">其他系统</string>
     <string name="gu_normal">正常</string>
     <string name="gu_fault">检测到异常</string>
+    <string name="car_warning">左前胎漏气</string>
+    <string name="car_warning2">右前胎漏气</string>
+    <string name="car_warning3">左后胎漏气</string>
+    <string name="car_warning4">右后胎漏气</string>
+    <string name="my_1">设备列表</string>
+    <string name="my_2">我的服务</string>
+    <string name="my_3">消息管理</string>
+    <string name="my_4">设置</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

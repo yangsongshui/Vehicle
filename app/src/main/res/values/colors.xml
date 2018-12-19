@@ -15,19 +15,21 @@
     <color name="electric_blue">#FDFA67</color>
     <color name="havelock_blue">#8DD99C</color>
     <color name="porcelain">#ED4D45</color>
-
+    <color name="black">#000000</color>
     <color name="silver_sand">#363636</color>
     <color name="bright_gray">#4e4c53</color>
     <color name="malibu">#3990e9</color>
-    <color name="baby_blue_eyes">#94ffffff</color>
+    <color name="baby_blue_eyes">#0a000000</color>
+    <color name="pastel_green">#25c48a</color>
+    <color name="mandy">#f85a51</color>
+    <color name="text_color">#e4e4e4</color>
+
     <color name="zircon">#DDE1E5</color>
     <color name="zumthor">#EDF6FC</color>
-    <color name="mandy">#ff3355</color>
-    <color name="pastel_green">#25c48a</color>
-    <color name="text_color">#b4b4b4</color>
+
     <color name="accent_bottom_navigation">#3399ff</color>
     <color name="alabaster">#FAFAFA</color>
-    <color name="black">#333333</color>
+
     <color name="spindle">#BDD3F3</color>
     <color name="carmine_pink">#EC4856</color>
     <color name="tan_hide">#F2995C</color>
