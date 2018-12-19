@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.fragment.QuFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
 
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/tl_4"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_48"
+            android:layout_gravity="center_horizontal"
+            tl:tl_iconVisible="false"
+            tl:tl_indicator_color="#090d0c"
+            tl:tl_indicator_width="@dimen/dp_25"
+            tl:tl_tab_space_equal="true"
+            tl:tl_tab_width="@dimen/dp_120"
+            tl:tl_tab_padding="@dimen/dp_30"
+            tl:tl_textBold="SELECT"
+            tl:tl_textSelectColor="#090d0c"
+            tl:tl_textUnselectColor="#66090d0c"
+            tl:tl_textsize="@dimen/sp_15" />
+    </LinearLayout>
 
-
-        <com.ocnyang.pagetransformerhelp.BannerViewPager
-            android:id="@+id/viewPager2"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_200"
-            app:layout_constraintDimensionRatio="19:10"
-
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/qu_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

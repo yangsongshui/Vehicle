@@ -43,4 +43,20 @@
     <string name="home_data7">平均油耗量</string>
     <string name="home_data8">汽车服务</string>
     <string name="home_data9">接车</string>
+    <string name="qu_data">圈子</string>
+    <string name="qu_data2">收藏</string>
+    <string name="kuang_data">故障码</string>
+    <string name="kuang_data2">警告</string>
+    <string name="gu_data">燃料和空气计量和辅助排放控制系统</string>
+    <string name="gu_data2">点火、失火监测系统</string>
+    <string name="gu_data3">辅助排放控制系统</string>
+    <string name="gu_data4">车速、怠速控制和辅助输入系统</string>
+    <string name="gu_data5">计算机和辅助输入系统</string>
+    <string name="gu_data6">传输系统</string>
+    <string name="gu_data7">其他系统</string>
+    <string name="gu_normal">正常</string>
+    <string name="gu_fault">检测到异常</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
