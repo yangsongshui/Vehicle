@@ -13,6 +13,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/dp_20"
             android:layout_marginStart="@dimen/dp_5"
             android:layout_height="wrap_content">
             <ImageView
@@ -25,6 +26,7 @@
                 android:id="@+id/gu_data"
                 android:layout_width="wrap_content"
                 android:text="@string/gu_data"
+                android:layout_marginStart="@dimen/dp_5"
                 android:layout_toEndOf="@+id/business_car_1"
                 android:textSize="@dimen/sp_12"
                 android:layout_height="wrap_content" />
@@ -32,6 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_toEndOf="@+id/business_car_1"
                 android:layout_below="@+id/gu_data"
+                android:layout_marginStart="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_10"
                 android:text="@string/gu_normal"
                 android:textColor="@color/pastel_green"
                 android:layout_height="wrap_content" />
