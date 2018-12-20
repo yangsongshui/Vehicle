@@ -8,171 +8,138 @@ public class User {
 
 
     /**
-     * resCode : 0
-     * resMessage : 登录成功！
-     * resBody : {"position":"","birthday":"","sex":"","phoneNumber":"18212345678","email":"","nickName":"","department":"","role":"0","headPic":"","date":"2017-06-27 14:54:44","passWord":"e10adc3949ba59abbe56e057f20f883e","city":""}
+     * data : {"userJson":{"lastPasswordResetDate":1541598964000,"nickName":"管理员","passWord":"Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E","roleType":"0","userCode":"admin","userPhone":"admin","validind":"1"},"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1NDQwODEzNjA4NTgsImV4cCI6MTU0NDA4MzE2MH0.GSgCDrtKJ8EEmkoLoDupQnmZdduQC0MG0Q5IZGtSf0zx9551r_zrGn6y2QN7gJCr_e3B6uMt8IihrsY0wTY_mA"}
+     * status : 0
+     * statusText : Success
      */
 
-    private String resCode;
-    private String resMessage;
-    private ResBodyBean resBody;
+    private DataBean data;
+    private int status;
+    private String statusText;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "resCode='" + resCode + '\'' +
-                ", resMessage='" + resMessage + '\'' +
-                ", resBody=" + resBody +
-                '}';
+    public DataBean getData() {
+        return data;
     }
 
-    public String getResCode() {
-        return resCode;
+    public void setData(DataBean data) {
+        this.data = data;
     }
 
-    public void setResCode(String resCode) {
-        this.resCode = resCode;
+    public int getStatus() {
+        return status;
     }
 
-    public String getResMessage() {
-        return resMessage;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public void setResMessage(String resMessage) {
-        this.resMessage = resMessage;
+    public String getStatusText() {
+        return statusText;
     }
 
-    public ResBodyBean getResBody() {
-        return resBody;
+    public void setStatusText(String statusText) {
+        this.statusText = statusText;
     }
 
-    public void setResBody(ResBodyBean resBody) {
-        this.resBody = resBody;
-    }
-
-    public static class ResBodyBean {
+    public static class DataBean {
         /**
-         * position :
-         * birthday :
-         * sex :
-         * phoneNumber : 18212345678
-         * email :
-         * nickName :
-         * department :
-         * role : 0
-         * headPic :
-         * date : 2017-06-27 14:54:44
-         * passWord : e10adc3949ba59abbe56e057f20f883e
-         * city :
+         * userJson : {"lastPasswordResetDate":1541598964000,"nickName":"管理员","passWord":"Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E","roleType":"0","userCode":"admin","userPhone":"admin","validind":"1"}
+         * token : eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1NDQwODEzNjA4NTgsImV4cCI6MTU0NDA4MzE2MH0.GSgCDrtKJ8EEmkoLoDupQnmZdduQC0MG0Q5IZGtSf0zx9551r_zrGn6y2QN7gJCr_e3B6uMt8IihrsY0wTY_mA
          */
 
-        private String position;
-        private String birthday;
-        private String sex;
-        private String phoneNumber;
-        private String email;
-        private String nickName;
-        private String department;
-        private String role;
-        private String headPic;
-        private String date;
-        private String passWord;
-        private String city;
+        private UserJsonBean userJson;
+        private String token;
 
-        public String getPosition() {
-            return position;
+        public UserJsonBean getUserJson() {
+            return userJson;
         }
 
-        public void setPosition(String position) {
-            this.position = position;
+        public void setUserJson(UserJsonBean userJson) {
+            this.userJson = userJson;
         }
 
-        public String getBirthday() {
-            return birthday;
+        public String getToken() {
+            return token;
         }
 
-        public void setBirthday(String birthday) {
-            this.birthday = birthday;
+        public void setToken(String token) {
+            this.token = token;
         }
 
-        public String getSex() {
-            return sex;
-        }
+        public static class UserJsonBean {
+            /**
+             * lastPasswordResetDate : 1541598964000
+             * nickName : 管理员
+             * passWord : Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E
+             * roleType : 0
+             * userCode : admin
+             * userPhone : admin
+             * validind : 1
+             */
 
-        public void setSex(String sex) {
-            this.sex = sex;
-        }
+            private long lastPasswordResetDate;
+            private String nickName;
+            private String passWord;
+            private String roleType;
+            private String userCode;
+            private String userPhone;
+            private String validind;
 
-        public String getPhoneNumber() {
-            return phoneNumber;
-        }
+            public long getLastPasswordResetDate() {
+                return lastPasswordResetDate;
+            }
 
-        public void setPhoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-        }
+            public void setLastPasswordResetDate(long lastPasswordResetDate) {
+                this.lastPasswordResetDate = lastPasswordResetDate;
+            }
 
-        public String getEmail() {
-            return email;
-        }
+            public String getNickName() {
+                return nickName;
+            }
 
-        public void setEmail(String email) {
-            this.email = email;
-        }
+            public void setNickName(String nickName) {
+                this.nickName = nickName;
+            }
 
-        public String getNickName() {
-            return nickName;
-        }
+            public String getPassWord() {
+                return passWord;
+            }
 
-        public void setNickName(String nickName) {
-            this.nickName = nickName;
-        }
+            public void setPassWord(String passWord) {
+                this.passWord = passWord;
+            }
 
-        public String getDepartment() {
-            return department;
-        }
+            public String getRoleType() {
+                return roleType;
+            }
 
-        public void setDepartment(String department) {
-            this.department = department;
-        }
+            public void setRoleType(String roleType) {
+                this.roleType = roleType;
+            }
 
-        public String getRole() {
-            return role;
-        }
+            public String getUserCode() {
+                return userCode;
+            }
 
-        public void setRole(String role) {
-            this.role = role;
-        }
+            public void setUserCode(String userCode) {
+                this.userCode = userCode;
+            }
 
-        public String getHeadPic() {
-            return headPic;
-        }
+            public String getUserPhone() {
+                return userPhone;
+            }
 
-        public void setHeadPic(String headPic) {
-            this.headPic = headPic;
-        }
+            public void setUserPhone(String userPhone) {
+                this.userPhone = userPhone;
+            }
 
-        public String getDate() {
-            return date;
-        }
+            public String getValidind() {
+                return validind;
+            }
 
-        public void setDate(String date) {
-            this.date = date;
-        }
-
-        public String getPassWord() {
-            return passWord;
-        }
-
-        public void setPassWord(String passWord) {
-            this.passWord = passWord;
-        }
-
-        public String getCity() {
-            return city;
-        }
-
-        public void setCity(String city) {
-            this.city = city;
+            public void setValidind(String validind) {
+                this.validind = validind;
+            }
         }
     }
 }

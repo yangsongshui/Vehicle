@@ -20,15 +20,7 @@ public class BasePresenterImp<V extends IBaseView , T> implements IBaseRequestCa
         this.iBaseView = view;
     }
 
-    /**
-     * @descriptoin	请求之前显示progress
-     * @author	ys
-     * @date 2017/6/13 15:13
-     */
-    @Override
-    public void beforeRequest() {
-        iBaseView.showProgress();
-    }
+
 
     /**
      * @descriptoin	请求异常显示异常信息

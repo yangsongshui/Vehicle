@@ -7,12 +7,7 @@ package com.example.administrator.vehicle.base;
  */
 public interface IBaseRequestCallBack<T> {
 
-    /**
-     * @descriptoin	请求之前的操作
-     * @author	ys
-     * @date 2017/6/13 11:34
-     */
-    void beforeRequest();
+
 
     /**
      * @descriptoin	请求异常

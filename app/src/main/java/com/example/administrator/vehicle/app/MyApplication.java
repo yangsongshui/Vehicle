@@ -43,8 +43,8 @@ public class MyApplication extends Application {
         super.onCreate();
         instance = this;
         user = new User();
-        if (user.getResBody() == null)
-            user.setResBody(new User.ResBodyBean());
+        if (user.getData() == null)
+            user.setData(new User.DataBean());
         AppContextUtil.init(this);
         SpUtils.init(this);
 
@@ -103,8 +103,8 @@ public class MyApplication extends Application {
         Log.e("user", this.user.toString());
         Boolean IsRemember = SpUtils.getBoolean("remember", true);
         if (IsRemember) {
-            SpUtils.putString("phone", user.getResBody().getPhoneNumber());
-            SpUtils.putString("password", user.getResBody().getPassWord());
+            SpUtils.putString("phone", user.getData().getUserJson().getUserPhone());
+            SpUtils.putString("password", user.getData().getUserJson().getPassWord());
             Log.e("------", user.toString());
         }
 
@@ -112,33 +112,14 @@ public class MyApplication extends Application {
 
 
     public User getUser() {
-        Boolean IsRemember = SpUtils.getBoolean("remember", true);
-        if (IsRemember) {
-            String phone = SpUtils.getString("phone", "");
-            String password = SpUtils.getString("password", "");
-            Log.e("------", phone + " " + password);
-            if (phone.equals("") || password.equals(""))
-                return null;
-            user.getResBody().setPhoneNumber(phone);
-            user.getResBody().setPassWord(password);
-            return user;
-        } else if (user.getResBody() != null) {
-            if (user.getResBody().getPhoneNumber() != null)
-                return user;
-            else
-                return null;
-        } else {
-            return null;
-        }
 
+        return user;
     }
 
     public void outLogin() {
-        user.setResBody(null);
-
-        SpUtils.putString("username", "");
+        user = null;
+        SpUtils.putString("phone", "");
         SpUtils.putString("password", "");
-        clearAllActies();
 
     }
 

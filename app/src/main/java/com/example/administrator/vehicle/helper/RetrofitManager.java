@@ -77,6 +77,7 @@ public class RetrofitManager {
                             .addInterceptor(mRewriteCacheControlInterceptor)
                             .addNetworkInterceptor(mRewriteCacheControlInterceptor)
                             .addInterceptor(interceptor)
+
 //                            .addNetworkInterceptor(new StethoInterceptor())
                             .retryOnConnectionFailure(true)
                             .connectTimeout(1, TimeUnit.MINUTES)

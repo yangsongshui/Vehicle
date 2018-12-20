@@ -6,12 +6,8 @@ package com.example.administrator.vehicle.base;
  * 邮箱：597210600@qq.com
  */
 public interface IBaseView<T> {
-    /**
-     * @descriptoin	请求前加载progress
-     * @author	ys
-     * @date 2017/6/13 11:00
-     */
-    void showProgress();
+
+
 
     /**
      * @descriptoin	请求结束之后隐藏progress
