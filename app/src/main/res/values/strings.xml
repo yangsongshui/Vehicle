@@ -64,5 +64,6 @@
     <string name="my_2">我的服务</string>
     <string name="my_3">消息管理</string>
     <string name="my_4">设置</string>
+    <string name="list_title">设备列表</string>
 
 </resources>

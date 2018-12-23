@@ -23,8 +23,8 @@
     <color name="pastel_green">#25c48a</color>
     <color name="mandy">#f85a51</color>
     <color name="text_color">#e4e4e4</color>
+    <color name="zircon">#4e4b53</color>
 
-    <color name="zircon">#DDE1E5</color>
     <color name="zumthor">#EDF6FC</color>
 
     <color name="accent_bottom_navigation">#3399ff</color>
