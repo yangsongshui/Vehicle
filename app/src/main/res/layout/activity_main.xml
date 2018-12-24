@@ -70,7 +70,7 @@
             android:layout_weight="1"
             android:padding="@dimen/dp_10"
             android:background="@null"
-
+            android:textColor="@color/white"
             android:hint="@string/phone2"
             android:textColorHint="@color/white3" />
 
@@ -111,6 +111,7 @@
         android:padding="@dimen/dp_10"
         android:layout_marginEnd="@dimen/dp_25"
         android:hint="@string/psw2"
+        android:textColor="@color/white"
         android:textColorHint="@color/white3" />
 
     <ImageView
@@ -130,7 +131,7 @@
         android:layout_marginEnd="@dimen/dp_25"
         android:background="@color/white4"
         android:text="@string/login"
-        android:textColor="@color/white3" />
+        android:textColor="@color/white" />
 
     <RelativeLayout
         android:layout_width="match_parent"

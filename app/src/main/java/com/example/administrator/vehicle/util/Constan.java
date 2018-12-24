@@ -66,6 +66,9 @@ public class Constan {
             case 874:
                 msg = "仅允许普通用户、商家老板注册为商家！";
                 break;
+            case 873:
+                msg = "仅允许普通用户、商家老板注册为商家！";
+                break;
             case 102:
                 msg = "请先获取验证码";
                 break;

@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingEnd="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_20"
         android:paddingBottom="@dimen/dp_20"
         android:background="@color/white"
         android:orientation="horizontal">

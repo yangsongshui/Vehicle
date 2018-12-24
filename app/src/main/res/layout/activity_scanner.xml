@@ -19,12 +19,13 @@
 
         <com.example.administrator.vehicle.zxing.view.ViewfinderView
             android:id="@+id/viewfinder_content"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:corner_color="@color/accent_bottom_navigation"
             app:frame_color="@color/zxing"
             app:label_text="@string/scanner_msg"
             app:label_text_color="@color/white"
+
             app:laser_color="@color/accent_bottom_navigation"
             app:mask_color="@color/zxing"
             app:result_color="@color/accent_bottom_navigation"

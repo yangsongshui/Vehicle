@@ -7,6 +7,7 @@
     <string name="num">+86</string>
     <string name="psw">密码</string>
     <string name="psw2">请输入密码</string>
+    <string name="dialog_msg">请求中…</string>
     <string name="login">登录</string>
     <string name="register">注册</string>
     <string name="register_title">手机号注册</string>

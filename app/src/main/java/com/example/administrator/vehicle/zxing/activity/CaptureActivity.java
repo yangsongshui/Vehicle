@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
 import com.example.administrator.vehicle.R;
 import com.example.administrator.vehicle.zxing.camera.CameraManager;
 import com.example.administrator.vehicle.zxing.decoding.CaptureActivityHandler;

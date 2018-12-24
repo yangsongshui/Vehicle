@@ -27,7 +27,7 @@ public class MyApplication extends Application {
     public static List<Activity> activitiesList = new ArrayList<Activity>(); // 活动管理集合
     public User user;
     public static Map<String, Integer> mMap = new HashMap<>();
-
+    private String token;
 
     /**
      * 获取单例
@@ -47,7 +47,7 @@ public class MyApplication extends Application {
             user.setData(new User.DataBean());
         AppContextUtil.init(this);
         SpUtils.init(this);
-
+        Log.isPrint=true;
     }
 
     public RequestManager getGlide() {
@@ -101,18 +101,12 @@ public class MyApplication extends Application {
     public void setUser(User user) {
         this.user = user;
         Log.e("user", this.user.toString());
-        Boolean IsRemember = SpUtils.getBoolean("remember", true);
-        if (IsRemember) {
-            SpUtils.putString("phone", user.getData().getUserJson().getUserPhone());
-            SpUtils.putString("password", user.getData().getUserJson().getPassWord());
-            Log.e("------", user.toString());
-        }
+        setToken(user.getData().getToken());
 
     }
 
 
     public User getUser() {
-
         return user;
     }
 
@@ -144,5 +138,11 @@ public class MyApplication extends Application {
         return processName;
     }
 
+    public String getToken() {
+        return token;
+    }
 
+    public void setToken(String token) {
+        this.token = "CheJianToken"+token;
+    }
 }

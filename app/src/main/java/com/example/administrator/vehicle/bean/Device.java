@@ -1,60 +1,76 @@
 package com.example.administrator.vehicle.bean;
 
+import java.util.List;
+
 public class Device {
-    String name;
-    String num;
-    String image;
-    String number;
-    String status;
 
-    public Device() {
-    }
+    /**
+     * data : [{"consumerCode":"U2018000003","deviceId":"CY0150000047","inputDate":1543334518000}]
+     * status : 0
+     * statusText : Success
+     */
 
-    public Device(String name, String num, String image, String number, String status) {
-        this.name = name;
-        this.num = num;
-        this.image = image;
-        this.number = number;
-        this.status = status;
-    }
+    private int status;
+    private String statusText;
+    private List<DataBean> data;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNum() {
-        return num;
-    }
-
-    public void setNum(String num) {
-        this.num = num;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getStatusText() {
+        return statusText;
+    }
+
+    public void setStatusText(String statusText) {
+        this.statusText = statusText;
+    }
+
+    public List<DataBean> getData() {
+        return data;
+    }
+
+    public void setData(List<DataBean> data) {
+        this.data = data;
+    }
+
+    public static class DataBean {
+        /**
+         * consumerCode : U2018000003
+         * deviceId : CY0150000047
+         * inputDate : 1543334518000
+         */
+
+        private String consumerCode;
+        private String deviceId;
+        private long inputDate;
+
+        public String getConsumerCode() {
+            return consumerCode;
+        }
+
+        public void setConsumerCode(String consumerCode) {
+            this.consumerCode = consumerCode;
+        }
+
+        public String getDeviceId() {
+            return deviceId;
+        }
+
+        public void setDeviceId(String deviceId) {
+            this.deviceId = deviceId;
+        }
+
+        public long getInputDate() {
+            return inputDate;
+        }
+
+        public void setInputDate(long inputDate) {
+            this.inputDate = inputDate;
+        }
     }
 }
