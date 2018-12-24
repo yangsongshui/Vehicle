@@ -18,13 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.ViewHolder>{
-    private ArrayList<Device> mData;
+    private Device mData;
     Context mContext;
-    public DeviceAdapter(ArrayList<Device> data , Context context) {
+    public DeviceAdapter(Device data , Context context) {
         this.mData = data;
         this.mContext = context;
     }
-    public void updateData(ArrayList<Device> data) {
+    public void updateData(Device data) {
         this.mData = data;
         notifyDataSetChanged();
     }
@@ -42,13 +42,15 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         // 绑定数据
-        Device item=mData.get(position);
-
+        Device.DataBean item=mData.getData().get(position);
+        viewHolder.device_number.setText(item.getConsumerCode());
+        viewHolder.device_num.setText(item.getDeviceId());
+        viewHolder.device_name.setText(item.getConsumerCode());
     }
 
     @Override
     public int getItemCount() {
-        return mData == null ? 0 : mData.size();
+        return mData.getData() == null ? 0 : mData.getData().size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

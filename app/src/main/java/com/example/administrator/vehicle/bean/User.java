@@ -6,9 +6,8 @@ package com.example.administrator.vehicle.bean;
 
 public class User {
 
-
     /**
-     * data : {"userJson":{"address":"address","birthday":1544112000000,"lastPasswordResetDate":1541598964000,"nickName":"用户","passWord":"Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E","photo":"photo","remark":"remark","roleType":"1","sex":"1","userCode":"U2018026","userPhone":"13188999988","validind":"1"},"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVMjAxODAwMDAwMyIsImNyZWF0ZWQiOjE1NDU2NDkzNTM0ODgsImV4cCI6MTU0NTY1MTE1M30.F-lmzu29lMgg7VR15aCGK73OzpFR8o6SZU4j2Rxox8Td6A4Eymk5e8JLZC70l1-dq5wztsLYMJcR3yK4KYdpJA"}
+     * data : {"userJson":{"lastPasswordResetDate":1541598964000,"nickName":"管理员","passWord":"Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E","roleType":"0","userCode":"admin","userPhone":"admin","validind":"1","identificationCode":"123123123","photo":"https://1123123123123","sex":"0","birthday":"1993-12-23 hh:MM:ss","address":"啊额的撒大","autograph":"签名","remark":"备注"},"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1NDQwODEzNjA4NTgsImV4cCI6MTU0NDA4MzE2MH0.GSgCDrtKJ8EEmkoLoDupQnmZdduQC0MG0Q5IZGtSf0zx9551r_zrGn6y2QN7gJCr_e3B6uMt8IihrsY0wTY_mA"}
      * status : 0
      * statusText : Success
      */
@@ -43,8 +42,8 @@ public class User {
 
     public static class DataBean {
         /**
-         * userJson : {"address":"address","birthday":1544112000000,"lastPasswordResetDate":1541598964000,"nickName":"用户","passWord":"Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E","photo":"photo","remark":"remark","roleType":"1","sex":"1","userCode":"U2018026","userPhone":"13188999988","validind":"1"}
-         * token : eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVMjAxODAwMDAwMyIsImNyZWF0ZWQiOjE1NDU2NDkzNTM0ODgsImV4cCI6MTU0NTY1MTE1M30.F-lmzu29lMgg7VR15aCGK73OzpFR8o6SZU4j2Rxox8Td6A4Eymk5e8JLZC70l1-dq5wztsLYMJcR3yK4KYdpJA
+         * userJson : {"lastPasswordResetDate":1541598964000,"nickName":"管理员","passWord":"Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E","roleType":"0","userCode":"admin","userPhone":"admin","validind":"1","identificationCode":"123123123","photo":"https://1123123123123","sex":"0","birthday":"1993-12-23 hh:MM:ss","address":"啊额的撒大","autograph":"签名","remark":"备注"}
+         * token : eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1NDQwODEzNjA4NTgsImV4cCI6MTU0NDA4MzE2MH0.GSgCDrtKJ8EEmkoLoDupQnmZdduQC0MG0Q5IZGtSf0zx9551r_zrGn6y2QN7gJCr_e3B6uMt8IihrsY0wTY_mA
          */
 
         private UserJsonBean userJson;
@@ -68,48 +67,36 @@ public class User {
 
         public static class UserJsonBean {
             /**
-             * address : address
-             * birthday : 1544112000000
              * lastPasswordResetDate : 1541598964000
-             * nickName : 用户
+             * nickName : 管理员
              * passWord : Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E
-             * photo : photo
-             * remark : remark
-             * roleType : 1
-             * sex : 1
-             * userCode : U2018026
-             * userPhone : 13188999988
+             * roleType : 0
+             * userCode : admin
+             * userPhone : admin
              * validind : 1
+             * identificationCode : 123123123
+             * photo : https://1123123123123
+             * sex : 0
+             * birthday : 1993-12-23 hh:MM:ss
+             * address : 啊额的撒大
+             * autograph : 签名
+             * remark : 备注
              */
 
-            private String address;
-            private long birthday;
             private long lastPasswordResetDate;
             private String nickName;
             private String passWord;
-            private String photo;
-            private String remark;
             private String roleType;
-            private String sex;
             private String userCode;
             private String userPhone;
             private String validind;
-
-            public String getAddress() {
-                return address;
-            }
-
-            public void setAddress(String address) {
-                this.address = address;
-            }
-
-            public long getBirthday() {
-                return birthday;
-            }
-
-            public void setBirthday(long birthday) {
-                this.birthday = birthday;
-            }
+            private String identificationCode;
+            private String photo;
+            private String sex;
+            private String birthday;
+            private String address;
+            private String autograph;
+            private String remark;
 
             public long getLastPasswordResetDate() {
                 return lastPasswordResetDate;
@@ -135,36 +122,12 @@ public class User {
                 this.passWord = passWord;
             }
 
-            public String getPhoto() {
-                return photo;
-            }
-
-            public void setPhoto(String photo) {
-                this.photo = photo;
-            }
-
-            public String getRemark() {
-                return remark;
-            }
-
-            public void setRemark(String remark) {
-                this.remark = remark;
-            }
-
             public String getRoleType() {
                 return roleType;
             }
 
             public void setRoleType(String roleType) {
                 this.roleType = roleType;
-            }
-
-            public String getSex() {
-                return sex;
-            }
-
-            public void setSex(String sex) {
-                this.sex = sex;
             }
 
             public String getUserCode() {
@@ -189,6 +152,62 @@ public class User {
 
             public void setValidind(String validind) {
                 this.validind = validind;
+            }
+
+            public String getIdentificationCode() {
+                return identificationCode;
+            }
+
+            public void setIdentificationCode(String identificationCode) {
+                this.identificationCode = identificationCode;
+            }
+
+            public String getPhoto() {
+                return photo;
+            }
+
+            public void setPhoto(String photo) {
+                this.photo = photo;
+            }
+
+            public String getSex() {
+                return sex;
+            }
+
+            public void setSex(String sex) {
+                this.sex = sex;
+            }
+
+            public String getBirthday() {
+                return birthday;
+            }
+
+            public void setBirthday(String birthday) {
+                this.birthday = birthday;
+            }
+
+            public String getAddress() {
+                return address;
+            }
+
+            public void setAddress(String address) {
+                this.address = address;
+            }
+
+            public String getAutograph() {
+                return autograph;
+            }
+
+            public void setAutograph(String autograph) {
+                this.autograph = autograph;
+            }
+
+            public String getRemark() {
+                return remark;
+            }
+
+            public void setRemark(String remark) {
+                this.remark = remark;
             }
         }
     }

@@ -53,8 +53,8 @@ public class DeviceListActivity extends BaseActivity implements MsgView {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        ArrayList<Device> data = new ArrayList<>();
-        adapter = new DeviceAdapter(data, this);
+
+        adapter = new DeviceAdapter(new Device(), this);
         progressDialog = new ProgressDialog(this);
         //progressDialog.setTitle();
         progressDialog.setMessage(getString(R.string.dialog_msg));
@@ -72,7 +72,7 @@ public class DeviceListActivity extends BaseActivity implements MsgView {
 
             @Override
             public void loadDataSuccess(Device tData) {
-
+                adapter.updateData(tData);
             }
 
             @Override
@@ -80,7 +80,7 @@ public class DeviceListActivity extends BaseActivity implements MsgView {
 
             }
         }, this);
-
+        deviceListPresenterImp.Registration(MyApplication.newInstance().getUsercoe());
     }
 
     @Override

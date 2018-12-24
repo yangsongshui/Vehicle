@@ -109,7 +109,9 @@ public class MyApplication extends Application {
     public User getUser() {
         return user;
     }
-
+    public String getUsercoe(){
+        return user.getData().getUserJson().getUserCode();
+    }
     public void outLogin() {
         user = null;
         SpUtils.putString("phone", "");
