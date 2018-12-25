@@ -1,6 +1,7 @@
 package com.example.administrator.vehicle.api;
 
 
+import com.example.administrator.vehicle.bean.Appmoments;
 import com.example.administrator.vehicle.bean.Code;
 import com.example.administrator.vehicle.bean.Device;
 import com.example.administrator.vehicle.bean.DeviceInfo;
@@ -42,4 +43,7 @@ public interface ServiceApi {
     //绑定设备
     @POST("/appmerchants/userBindingDevice")
     Observable<Msg> userBindingDevice(@QueryMap Map<String, String> map,@Header("Authorization") String token);
+
+    @POST("/appmoments/list")
+    Observable<Appmoments> appmoments(@QueryMap Map<String, String> map, @Header("Authorization") String token);
 }

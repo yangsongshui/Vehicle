@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.vehicle.R;
+import com.example.administrator.vehicle.app.MyApplication;
 import com.example.administrator.vehicle.bean.Device;
 import com.ocnyang.pagetransformerhelp.BannerItemBean;
 import com.ocnyang.pagetransformerhelp.BannerViewPager;
@@ -44,8 +45,21 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.ViewHolder
         // 绑定数据
         Device.DataBean item=mData.getData().get(position);
         viewHolder.device_number.setText(item.getConsumerCode());
-        viewHolder.device_num.setText(item.getDeviceId());
-        viewHolder.device_name.setText(item.getConsumerCode());
+        viewHolder.device_num.setText(item.getModelName());
+        viewHolder.device_name.setText(item.getBrandName());
+        if (item.getLogoPath()!=null){
+            MyApplication.newInstance().getGlide() .load(item.getLogoPath()).into( viewHolder.device_logo);
+        }
+        if (item.getFaultCodes()!=null){
+            viewHolder.devicee_start.setText("异常");
+
+            viewHolder.devicee_start.setTextColor(mContext.getResources().getColor(R.color.mandy));
+        }else {
+            viewHolder.devicee_start.setText("正常");
+
+            viewHolder.devicee_start.setTextColor(mContext.getResources().getColor(R.color.zircon));
+        }
+
     }
 
     @Override

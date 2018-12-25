@@ -11,12 +11,15 @@ import com.example.administrator.vehicle.R;
 import com.example.administrator.vehicle.app.MyApplication;
 import com.example.administrator.vehicle.base.BaseActivity;
 import com.example.administrator.vehicle.bean.Device;
+import com.example.administrator.vehicle.event.event;
 import com.example.administrator.vehicle.presenter.DeviceListPresenterImp;
 import com.example.administrator.vehicle.ui.fragment.KuangFragment;
 import com.example.administrator.vehicle.ui.fragment.LiangFragment;
 import com.example.administrator.vehicle.ui.fragment.MeFragment;
 import com.example.administrator.vehicle.ui.fragment.QuFragment;
 import com.example.administrator.vehicle.view.DeviceView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +52,6 @@ public class HomeActivity extends BaseActivity implements DeviceView {
         frags.add(new MeFragment());
         homeRg.setOnCheckedChangeListener(new CheckedChangeListener());
         homeRg.check(R.id.home_liang_rb);
-
         deviceListPresenterImp = new DeviceListPresenterImp(this, this);
     }
 
@@ -67,7 +69,7 @@ public class HomeActivity extends BaseActivity implements DeviceView {
     @Override
     public void loadDataSuccess(Device tData) {
         if (tData.getData().size() > 0) {
-
+            EventBus.getDefault().post(new event(tData));
         }
     }
 
@@ -80,6 +82,7 @@ public class HomeActivity extends BaseActivity implements DeviceView {
     protected void onStart() {
         super.onStart();
         deviceListPresenterImp.Registration(MyApplication.newInstance().getUsercoe());
+
     }
 
     //底部导航栏监听

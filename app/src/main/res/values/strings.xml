@@ -66,5 +66,11 @@
     <string name="my_3">消息管理</string>
     <string name="my_4">设置</string>
     <string name="list_title">设备列表</string>
+    <string name="liang_data">本次急加速</string>
+    <string name="liang_data2">本次急减速</string>
+    <string name="liang_data3">累计怠速时间</string>
+    <string name="liang_data4">平均热车时间</string>
+    <string name="liang_data5">平均车速</string>
+    <string name="liang_data6">累计急加速</string>
 
 </resources>

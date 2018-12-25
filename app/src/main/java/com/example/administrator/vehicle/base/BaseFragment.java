@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.administrator.vehicle.util.Toastor;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -14,6 +16,7 @@ public abstract class BaseFragment extends Fragment {
     private static final String TAG = BaseFragment.class.getName();
     protected View layout;
     private Unbinder unbinder;
+    public Toastor toastor;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -22,6 +25,7 @@ public abstract class BaseFragment extends Fragment {
         // 注解Fragment
         unbinder= ButterKnife.bind(this, layout);
         initData(layout, savedInstanceState);
+        toastor=new Toastor(getActivity());
         return layout;
     }
 

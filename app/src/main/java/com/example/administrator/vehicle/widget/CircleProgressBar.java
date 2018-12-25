@@ -93,14 +93,6 @@ public class CircleProgressBar extends View {
                 mWheelRect.centerX() - (mStepPaint.measureText(String.valueOf(mCurrStepNum)) / 2), mStepY,
                 mStepPaint);
         String description = "";
-        float percent = getPercent();
-        if(percent > 0.5){
-            description ="严重污染";
-        }else if(percent<0.5){
-            description ="中等污染";
-        }else{
-            description ="普通污染";
-        }
 
         canvas.drawText(description , mWheelRect.centerX() -
                 (mTargetPaint.measureText(description) / 2), mTargetY, mTargetPaint);

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_130"
     android:layout_marginTop="@dimen/dp_10"
-    android:background="@color/white"
+    android:background="@drawable/main_list_bg"
     android:orientation="vertical"
     android:paddingStart="@dimen/dp_15"
     android:layout_marginStart="@dimen/dp_15"
@@ -15,7 +15,7 @@
         android:id="@+id/device_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CJ201810240143"
+        android:text=""
         android:textColor="@color/hei"
         android:layout_marginTop="@dimen/dp_5"
         android:textSize="@dimen/sp_12" />
@@ -34,8 +34,8 @@
 
         <ImageView
             android:id="@+id/device_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_55"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
             android:src="@drawable/logo" />
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_25"
             android:layout_toEndOf="@+id/device_logo"
-            android:text="雷克萨斯"
+            android:text=""
             android:textColor="@color/hei"
             android:textSize="@dimen/sp_14" />
 
@@ -57,7 +57,7 @@
             android:layout_below="@+id/device_name"
             android:layout_marginStart="@dimen/dp_25"
             android:layout_toEndOf="@+id/device_logo"
-            android:text="ES300"
+            android:text=""
             android:textColor="@color/zircon"
             android:textSize="@dimen/sp_13" />
 
@@ -81,6 +81,6 @@
             android:textSize="@dimen/sp_13"
             android:layout_alignTop="@+id/device_kuang"
             android:layout_toEndOf="@+id/device_kuang"
-            android:text="异常" />
+            android:text="" />
     </RelativeLayout>
 </LinearLayout>
