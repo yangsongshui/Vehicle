@@ -8,11 +8,15 @@ import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 
 import com.example.administrator.vehicle.R;
+import com.example.administrator.vehicle.app.MyApplication;
 import com.example.administrator.vehicle.base.BaseActivity;
+import com.example.administrator.vehicle.bean.Device;
+import com.example.administrator.vehicle.presenter.DeviceListPresenterImp;
 import com.example.administrator.vehicle.ui.fragment.KuangFragment;
 import com.example.administrator.vehicle.ui.fragment.LiangFragment;
 import com.example.administrator.vehicle.ui.fragment.MeFragment;
 import com.example.administrator.vehicle.ui.fragment.QuFragment;
+import com.example.administrator.vehicle.view.DeviceView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +24,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class HomeActivity extends BaseActivity {
+public class HomeActivity extends BaseActivity implements DeviceView {
     private int position; //当前选中的位置
     private Fragment mFragment;//刚显示的Fragment
     @BindView(R.id.home_rg)
@@ -28,6 +32,9 @@ public class HomeActivity extends BaseActivity {
     @BindView(R.id.fl_main)
     FrameLayout flMain;
     private List<Fragment> frags;
+
+    DeviceListPresenterImp deviceListPresenterImp;
+
     @Override
     protected int getContentView() {
         return R.layout.activity_home;
@@ -42,6 +49,8 @@ public class HomeActivity extends BaseActivity {
         frags.add(new MeFragment());
         homeRg.setOnCheckedChangeListener(new CheckedChangeListener());
         homeRg.check(R.id.home_liang_rb);
+
+        deviceListPresenterImp = new DeviceListPresenterImp(this, this);
     }
 
 
@@ -50,6 +59,28 @@ public class HomeActivity extends BaseActivity {
         //点击中间车间按钮
     }
 
+    @Override
+    public void disimissProgress() {
+
+    }
+
+    @Override
+    public void loadDataSuccess(Device tData) {
+        if (tData.getData().size() > 0) {
+
+        }
+    }
+
+    @Override
+    public void loadDataError(Throwable throwable) {
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        deviceListPresenterImp.Registration(MyApplication.newInstance().getUsercoe());
+    }
 
     //底部导航栏监听
     private class CheckedChangeListener implements RadioGroup.OnCheckedChangeListener {
@@ -57,30 +88,30 @@ public class HomeActivity extends BaseActivity {
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             switch (checkedId) {
                 case R.id.home_liang_rb:
-                  //  pager.setCurrentItem(0);
-                    position=0;
+                    //  pager.setCurrentItem(0);
+                    position = 0;
                     break;
                 case R.id.home_kuang_rb:
-                   // pager.setCurrentItem(1);
-                    position=1;
+                    // pager.setCurrentItem(1);
+                    position = 1;
                     break;
                 case R.id.home_qu_rb:
-                   // pager.setCurrentItem(2);
-                    position=2;
+                    // pager.setCurrentItem(2);
+                    position = 2;
                     break;
                 case R.id.home_wo_rb:
-                   // pager.setCurrentItem(3);
-                    position=3;
+                    // pager.setCurrentItem(3);
+                    position = 3;
                     break;
 
             }
             //根据位置得到对应的Fragment
             Fragment currentFragment = getFragment();
-            replaceFragment(mFragment,currentFragment);
+            replaceFragment(mFragment, currentFragment);
         }
     }
+
     /**
-     *
      * @param lastFragment
      * @param currentFragment
      */
@@ -89,11 +120,11 @@ public class HomeActivity extends BaseActivity {
         FragmentTransaction transaction = fm.beginTransaction();
 
         //如果两个不相等,说明切换了Fragment
-        if(lastFragment != currentFragment){
+        if (lastFragment != currentFragment) {
             mFragment = currentFragment;
 
             //隐藏刚显示的Fragment
-            if(lastFragment != null){
+            if (lastFragment != null) {
                 transaction.hide(lastFragment);
             }
             /**
@@ -102,9 +133,9 @@ public class HomeActivity extends BaseActivity {
              * 如果当前要显示的Fragment没添加过 则 添加
              * 如果当前要显示的Fragment被添加过 则 隐藏
              */
-            if(!currentFragment.isAdded()){
-                transaction.add(R.id.fl_main,currentFragment).commit();
-            }else {
+            if (!currentFragment.isAdded()) {
+                transaction.add(R.id.fl_main, currentFragment).commit();
+            } else {
                 transaction.show(currentFragment).commit();
             }
         }
@@ -112,9 +143,10 @@ public class HomeActivity extends BaseActivity {
 
     /**
      * 根据返回到对应的Fragment
+     *
      * @return
      */
-    private Fragment getFragment( ) {
+    private Fragment getFragment() {
         return frags.get(position);
     }
 

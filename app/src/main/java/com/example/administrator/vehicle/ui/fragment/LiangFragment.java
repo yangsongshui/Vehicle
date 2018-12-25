@@ -13,6 +13,7 @@ import com.example.administrator.vehicle.R;
 import com.example.administrator.vehicle.base.BaseFragment;
 import com.example.administrator.vehicle.ui.DeviceListActivity;
 import com.example.administrator.vehicle.widget.CircleProgressBar;
+import com.example.administrator.vehicle.zxing.activity.CaptureActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,6 +63,8 @@ public class LiangFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(),DeviceListActivity.class));
                 break;
             case R.id.register_rig_iv:
+                Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                startActivity(intent);
                 break;
         }
     }

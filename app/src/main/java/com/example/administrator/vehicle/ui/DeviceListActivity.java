@@ -32,7 +32,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class DeviceListActivity extends BaseActivity implements MsgView {
+public class DeviceListActivity extends BaseActivity implements DeviceView {
 
 
     @BindView(R.id.device_list)
@@ -43,7 +43,6 @@ public class DeviceListActivity extends BaseActivity implements MsgView {
     private int REQUEST_CODE = 0x01;
     //扫描成功返回码
     private int RESULT_OK = 0xA1;
-    BindingPresenterImp bindingPresenterImp;
     DeviceListPresenterImp deviceListPresenterImp;
     ProgressDialog progressDialog;
     @Override
@@ -63,24 +62,9 @@ public class DeviceListActivity extends BaseActivity implements MsgView {
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         deviceList.setLayoutManager(mLayoutManager);
         deviceList.setAdapter(adapter);
-        bindingPresenterImp=new BindingPresenterImp(this,this);
-        deviceListPresenterImp=new DeviceListPresenterImp(new DeviceView() {
-            @Override
-            public void disimissProgress() {
 
-            }
+        deviceListPresenterImp=new DeviceListPresenterImp(this, this);
 
-            @Override
-            public void loadDataSuccess(Device tData) {
-                adapter.updateData(tData);
-            }
-
-            @Override
-            public void loadDataError(Throwable throwable) {
-
-            }
-        }, this);
-        deviceListPresenterImp.Registration(MyApplication.newInstance().getUsercoe());
     }
 
     @Override
@@ -89,26 +73,17 @@ public class DeviceListActivity extends BaseActivity implements MsgView {
         super.onActivityResult(requestCode, resultCode, data);
         //扫描结果回调
         if (resultCode == RESULT_OK) {
-            User user =MyApplication.newInstance().getUser();
-            Bundle bundle = data.getExtras();
-            String scanResult = bundle.getString("qr_scan_result");
-            String sn = scanResult.substring(0, scanResult.indexOf("-")).toLowerCase();
-            String key = scanResult.substring(scanResult.indexOf("-") + 1, scanResult.length());
-            progressDialog.show();
-            Log.e("sn", sn);
-            Log.e("key", key);
-            Map<String,String> map=new HashMap<>();
-            map.put("deviceId",sn);
-            map.put("deviceKey",key);
-            map.put("consumerCode",user.getData().getUserJson().getUserCode());
-            bindingPresenterImp.Registration(map);
+
         }
 
     }
 
 
-
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        deviceListPresenterImp.Registration(MyApplication.newInstance().getUsercoe());
+    }
 
     @OnClick({R.id.register_left_iv, R.id.device_add})
     public void onViewClicked(View view) {
@@ -141,19 +116,19 @@ public class DeviceListActivity extends BaseActivity implements MsgView {
         return canUse;
     }
 
+
     @Override
     public void disimissProgress() {
-        progressDialog.dismiss();
+
     }
 
     @Override
-    public void loadDataSuccess(Msg tData) {
-        toastor.showSingletonToast(Constan.getMsg(tData.getStatus()));
-
+    public void loadDataSuccess(Device tData) {
+        adapter.updateData(tData);
     }
 
     @Override
     public void loadDataError(Throwable throwable) {
-        progressDialog.dismiss();
+
     }
 }

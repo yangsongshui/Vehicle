@@ -11,10 +11,13 @@ import android.widget.TextView;
 import com.example.administrator.vehicle.R;
 import com.example.administrator.vehicle.app.MyApplication;
 import com.example.administrator.vehicle.base.BaseActivity;
+import com.example.administrator.vehicle.bean.Device;
 import com.example.administrator.vehicle.bean.User;
+import com.example.administrator.vehicle.presenter.DeviceListPresenterImp;
 import com.example.administrator.vehicle.presenter.LoginPresenterImp;
 import com.example.administrator.vehicle.util.Constan;
 import com.example.administrator.vehicle.util.SpUtils;
+import com.example.administrator.vehicle.view.DeviceView;
 import com.example.administrator.vehicle.view.UserView;
 
 import butterknife.BindView;
@@ -72,6 +75,8 @@ public class MainActivity extends BaseActivity implements UserView {
     public void disimissProgress() {
         progressDialog.dismiss();
     }
+
+
 
     @Override
     protected void onResume() {

@@ -3,6 +3,7 @@ package com.example.administrator.vehicle.api;
 
 import com.example.administrator.vehicle.bean.Code;
 import com.example.administrator.vehicle.bean.Device;
+import com.example.administrator.vehicle.bean.DeviceInfo;
 import com.example.administrator.vehicle.bean.Msg;
 import com.example.administrator.vehicle.bean.User;
 
@@ -34,7 +35,7 @@ public interface ServiceApi {
     Observable<Msg> modifyPwd(@QueryMap Map<String, String> map);
     //首页数据
     @POST("/appuser/index")
-    Observable<Msg> getIndext(@Query("deviceId") String deviceId,@Query("frameNo") String frameNo,@Header("Authorization") String token);
+    Observable<DeviceInfo> getIndext(@Query("deviceId") String deviceId, @Query("frameNo") String frameNo, @Header("Authorization") String token);
     //设备列表
     @POST("/appuser/deviceList")
     Observable<Device> deviceList(@Query("consumerCode") String consumerCode, @Header("Authorization") String token);

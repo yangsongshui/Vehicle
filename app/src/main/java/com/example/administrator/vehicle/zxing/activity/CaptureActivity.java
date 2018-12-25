@@ -28,6 +28,13 @@ import android.widget.Toast;
 
 
 import com.example.administrator.vehicle.R;
+import com.example.administrator.vehicle.app.MyApplication;
+import com.example.administrator.vehicle.bean.Msg;
+import com.example.administrator.vehicle.bean.User;
+import com.example.administrator.vehicle.presenter.BindingPresenterImp;
+import com.example.administrator.vehicle.util.Constan;
+import com.example.administrator.vehicle.util.Log;
+import com.example.administrator.vehicle.view.MsgView;
 import com.example.administrator.vehicle.zxing.camera.CameraManager;
 import com.example.administrator.vehicle.zxing.decoding.CaptureActivityHandler;
 import com.example.administrator.vehicle.zxing.decoding.InactivityTimer;
@@ -44,7 +51,9 @@ import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 import java.util.Vector;
 
 
@@ -53,7 +62,7 @@ import java.util.Vector;
  *
  * @author Ryan.Tang
  */
-public class CaptureActivity extends AppCompatActivity implements Callback {
+public class CaptureActivity extends AppCompatActivity implements Callback, MsgView {
 
     private static final int REQUEST_CODE_SCAN_GALLERY = 100;
 
@@ -77,6 +86,10 @@ public class CaptureActivity extends AppCompatActivity implements Callback {
     /**
      * Called when the activity is first created.
      */
+
+    BindingPresenterImp bindingPresenterImp;
+    ProgressDialog progressDialog;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,26 +104,15 @@ public class CaptureActivity extends AppCompatActivity implements Callback {
                 finish();
             }
         });
-//		cancelScanButton = (Button) this.findViewById(R.id.btn_cancel_scan);
         hasSurface = false;
         inactivityTimer = new InactivityTimer(this);
-
-        //添加toolbar
-//        addToolbar();
+        bindingPresenterImp = new BindingPresenterImp(this, this);
+        progressDialog = new ProgressDialog(this);
+        //progressDialog.setTitle();
+        progressDialog.setMessage(getString(R.string.dialog_msg));
+        progressDialog.setCanceledOnTouchOutside(false);
     }
 
-    private void addToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        ImageView more = (ImageView) findViewById(R.id.scanner_toolbar_more);
-//        assert more != null;
-//        more.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-        setSupportActionBar(toolbar);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -134,7 +136,7 @@ public class CaptureActivity extends AppCompatActivity implements Callback {
 
     @Override
     protected void onActivityResult(final int requestCode, int resultCode, Intent data) {
-        if (requestCode==RESULT_OK) {
+        if (requestCode == RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_CODE_SCAN_GALLERY:
                     //获取选中图片的路径
@@ -158,13 +160,13 @@ public class CaptureActivity extends AppCompatActivity implements Callback {
 //                                m.what = R.id.decode_succeeded;
 //                                m.obj = result.getText();
 //                                handler.sendMessage(m);
-                                Intent resultIntent = new Intent();
-                                Bundle bundle = new Bundle();
-                                bundle.putString(INTENT_EXTRA_KEY_QR_SCAN ,result.getText());
+                              //  Intent resultIntent = new Intent();
+                               // Bundle bundle = new Bundle();
+                               // bundle.putString(INTENT_EXTRA_KEY_QR_SCAN, result.getText());
 //                                Logger.d("saomiao",result.getText());
 //                                bundle.putParcelable("bitmap",result.get);
-                                resultIntent.putExtras(bundle);
-                                CaptureActivity.this.setResult(RESULT_CODE_QR_SCAN, resultIntent);
+                                //  resultIntent.putExtras(bundle);
+                                //CaptureActivity.this.setResult(RESULT_CODE_QR_SCAN, resultIntent);
 
                             } else {
                                 Message m = handler.obtainMessage();
@@ -182,11 +184,12 @@ public class CaptureActivity extends AppCompatActivity implements Callback {
 
     /**
      * 扫描二维码图片的方法
+     *
      * @param path
      * @return
      */
     public Result scanningImage(String path) {
-        if(TextUtils.isEmpty(path)){
+        if (TextUtils.isEmpty(path)) {
             return null;
         }
         Hashtable<DecodeHintType, String> hints = new Hashtable<>();
@@ -278,13 +281,25 @@ public class CaptureActivity extends AppCompatActivity implements Callback {
         if (TextUtils.isEmpty(resultString)) {
             Toast.makeText(CaptureActivity.this, "Scan failed!", Toast.LENGTH_SHORT).show();
         } else {
-            Intent resultIntent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putString(INTENT_EXTRA_KEY_QR_SCAN, resultString);;
-            resultIntent.putExtras(bundle);
-            this.setResult(RESULT_CODE_QR_SCAN, resultIntent);
+//            Intent resultIntent = new Intent();
+//            Bundle bundle = new Bundle();
+//            bundle.putString(INTENT_EXTRA_KEY_QR_SCAN, resultString);
+//            resultIntent.putExtras(bundle);
+//            this.setResult(RESULT_CODE_QR_SCAN, resultIntent);
+            User user = MyApplication.newInstance().getUser();
+            //String scanResult = resultString.getText();
+            String sn = resultString.substring(0, resultString.indexOf("-")).toLowerCase();
+            String key = resultString.substring(resultString.indexOf("-") + 1, resultString.length());
+            // progressDialog.show();
+            Log.e("sn",sn);
+            Log.e("key",key);
+            Map<String, String> map = new HashMap<>();
+            map.put("deviceId", sn);
+            map.put("deviceKey", key);
+            map.put("consumerCode", user.getData().getUserJson().getUserCode());
+            bindingPresenterImp.Registration(map);
         }
-        CaptureActivity.this.finish();
+
     }
 
     private void initCamera(SurfaceHolder surfaceHolder) {
@@ -380,4 +395,20 @@ public class CaptureActivity extends AppCompatActivity implements Callback {
         }
     };
 
+    @Override
+    public void disimissProgress() {
+        progressDialog.dismiss();
+    }
+
+    @Override
+    public void loadDataSuccess(Msg tData) {
+
+        Toast.makeText(this, Constan.getMsg(tData.getStatus()), Toast.LENGTH_SHORT).show();
+        CaptureActivity.this.finish();
+    }
+
+    @Override
+    public void loadDataError(Throwable throwable) {
+        progressDialog.dismiss();
+    }
 }
