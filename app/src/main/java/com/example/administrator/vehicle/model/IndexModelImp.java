@@ -41,6 +41,7 @@ public class IndexModelImp extends BaseModel {
                     public void onError(Throwable e) {
                         //回调接口：请求异常
                         iBaseRequestCallBack.requestError(e);
+
                     }
 
                     @Override
