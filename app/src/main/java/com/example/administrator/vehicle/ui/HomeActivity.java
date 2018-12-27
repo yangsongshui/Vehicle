@@ -35,7 +35,6 @@ public class HomeActivity extends BaseActivity implements DeviceView {
     @BindView(R.id.fl_main)
     FrameLayout flMain;
     private List<Fragment> frags;
-
     DeviceListPresenterImp deviceListPresenterImp;
 
     @Override
@@ -69,6 +68,8 @@ public class HomeActivity extends BaseActivity implements DeviceView {
     @Override
     public void loadDataSuccess(Device tData) {
         if (tData.getData().size() > 0) {
+            //默认选中第一个
+            MyApplication.newInstance().setDevice(tData.getData().get(0));
             EventBus.getDefault().post(new event(tData));
         }
     }

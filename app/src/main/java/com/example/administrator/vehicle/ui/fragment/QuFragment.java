@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.administrator.vehicle.R;
 import com.example.administrator.vehicle.adapter.QuAdapter;
+import com.example.administrator.vehicle.app.MyApplication;
 import com.example.administrator.vehicle.base.BaseFragment;
 import com.example.administrator.vehicle.bean.Appmoments;
 import com.example.administrator.vehicle.bean.ItemArticle;
@@ -42,7 +43,7 @@ public class QuFragment extends BaseFragment implements OnTabSelectListener, App
     CommonTabLayout mTabLayout_4;
 
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
-    private RecyclerView.Adapter mAdapter;
+    private QuAdapter mAdapter;
 
     private RecyclerView.LayoutManager mLayoutManager;
     AppmomentsPresenterImp presenterImp;
@@ -50,7 +51,7 @@ public class QuFragment extends BaseFragment implements OnTabSelectListener, App
     protected void initData(View layout, Bundle savedInstanceState) {
         //RecyclerView初始化
         mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        mAdapter = new QuAdapter(getData(), getActivity());
+        mAdapter = new QuAdapter(new Appmoments(), getActivity());
         quRv.setLayoutManager(mLayoutManager);
         // 设置adapter
         quRv.setAdapter(mAdapter);
@@ -63,6 +64,7 @@ public class QuFragment extends BaseFragment implements OnTabSelectListener, App
         Map<String,String> map=new HashMap<>();
         map.put("_pageNo","1");
         map.put("_pageSize","20");
+        map.put("userCode",MyApplication.newInstance().getUsercoe());
         presenterImp.Registration(map);
     }
 
@@ -71,17 +73,7 @@ public class QuFragment extends BaseFragment implements OnTabSelectListener, App
         return R.layout.fragment_qu;
     }
 
-    /*初始化列表数据*/
-    private ArrayList<ItemArticle> getData() {
-        ArrayList<ItemArticle> data = new ArrayList<>();
 
-        data.add(new ItemArticle(mData, "时代拉开了教练课", "我自己发", "54", "64", 1));
-        data.add(new ItemArticle(mData, "时代拉开了教练课", "我自己发", "54", "64", 0));
-        data.add(new ItemArticle(mData, "时代拉开了教练课", "我自己发", "54", "64", 1));
-        data.add(new ItemArticle(mData, "时代拉开了教练课", "我自己发", "54", "64", 0));
-        data.add(new ItemArticle(mData, "时代拉开了教练课", "我自己发", "54", "64", 1));
-        return data;
-    }
 
 
     @Override
@@ -102,6 +94,9 @@ public class QuFragment extends BaseFragment implements OnTabSelectListener, App
     @Override
     public void loadDataSuccess(Appmoments tData) {
         toastor.showSingletonToast(Constan.getMsg(tData.getStatus()));
+        if (tData.getStatus()==0){
+            mAdapter.updateData(tData);
+        }
     }
 
     @Override

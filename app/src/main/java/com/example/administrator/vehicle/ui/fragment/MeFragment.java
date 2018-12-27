@@ -3,26 +3,24 @@ package com.example.administrator.vehicle.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.administrator.vehicle.R;
 import com.example.administrator.vehicle.app.MyApplication;
 import com.example.administrator.vehicle.base.BaseFragment;
+import com.example.administrator.vehicle.base.IBaseView;
 import com.example.administrator.vehicle.bean.User;
+import com.example.administrator.vehicle.bean.Userinfo;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MeFragment extends BaseFragment {
+public class MeFragment extends BaseFragment implements IBaseView<Userinfo> {
 
 
     @BindView(R.id.me_pic)
@@ -31,8 +29,6 @@ public class MeFragment extends BaseFragment {
     TextView meName;
     @BindView(R.id.me_msg)
     TextView meMsg;
-    Unbinder unbinder;
-
     @Override
     protected void initData(View layout, Bundle savedInstanceState) {
         User user=MyApplication.newInstance().getUser();
@@ -49,6 +45,7 @@ public class MeFragment extends BaseFragment {
             MyApplication.newInstance().getGlide() .load(user.getData().getUserJson().getPhoto()).into(mePic);
 
         }
+
     }
 
     @Override
@@ -71,5 +68,20 @@ public class MeFragment extends BaseFragment {
             case R.id.iv1:
                 break;
         }
+    }
+
+    @Override
+    public void disimissProgress() {
+
+    }
+
+    @Override
+    public void loadDataSuccess(Userinfo tData) {
+
+    }
+
+    @Override
+    public void loadDataError(Throwable throwable) {
+
     }
 }

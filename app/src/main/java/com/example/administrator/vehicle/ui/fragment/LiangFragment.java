@@ -15,9 +15,12 @@ import com.example.administrator.vehicle.R;
 import com.example.administrator.vehicle.app.MyApplication;
 import com.example.administrator.vehicle.base.BaseFragment;
 import com.example.administrator.vehicle.bean.Device;
+import com.example.administrator.vehicle.bean.DeviceInfo;
 import com.example.administrator.vehicle.event.event;
+import com.example.administrator.vehicle.presenter.IndexPresenterImp;
 import com.example.administrator.vehicle.ui.DeviceListActivity;
 import com.example.administrator.vehicle.util.Log;
+import com.example.administrator.vehicle.view.DeviceInfoView;
 import com.example.administrator.vehicle.widget.CircleProgressBar;
 import com.example.administrator.vehicle.zxing.activity.CaptureActivity;
 
@@ -33,7 +36,7 @@ import butterknife.Unbinder;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LiangFragment extends BaseFragment {
+public class LiangFragment extends BaseFragment implements DeviceInfoView {
     @BindView(R.id.home_data)
     TextView homeData;
     @BindView(R.id.home_data2)
@@ -69,7 +72,7 @@ public class LiangFragment extends BaseFragment {
     @BindView(R.id.car_ll)
     LinearLayout carLl;
 
-
+    IndexPresenterImp indexPresenterImp;
     public LiangFragment() {
         // Required empty public constructor
     }
@@ -82,6 +85,7 @@ public class LiangFragment extends BaseFragment {
         EventBus.getDefault().register(this);
         colorProgressView.setMaxStepNum(100);
         colorProgressView.update(50, 1000);
+        indexPresenterImp=new IndexPresenterImp(this,getActivity());
     }
 
 
@@ -92,16 +96,15 @@ public class LiangFragment extends BaseFragment {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEventMainThread(event event) {
-        Device device = event.getDevice();
+        Device.DataBean device = MyApplication.newInstance().getDevice();
         Log.e("device", "获取到设备信息");
-        carNum.setText("设备号:" + device.getData().get(0).getDeviceId());
-
-        if (device.getData().get(0).getLogoPath() != null) {
-            MyApplication.newInstance().getGlide().load(device.getData().get(0).getLogoPath()).into(carLogo);
+        carNum.setText("设备号:" + device.getDeviceId());
+        if (device.getLogoPath() != null) {
+            MyApplication.newInstance().getGlide().load(device.getLogoPath()).into(carLogo);
         }
-        carName.setText(device.getData().get(0).getBrandName());
-        carKey.setText("key:" + device.getData().get(0).getFrameNo());
-        if (device.getData().get(0).getFaultCodes() != null) {
+        carName.setText(device.getBrandName());
+
+        if (device.getFaultCodes() != null) {
             carLl.setVisibility(View.GONE);
             carStatus.setVisibility(View.VISIBLE);
         } else {
@@ -109,6 +112,13 @@ public class LiangFragment extends BaseFragment {
             carStatus.setVisibility(View.GONE);
 
         }
+        if (device.getFrameNo()!=null){
+            indexPresenterImp.GetIndex(device.getDeviceId(),device.getFrameNo());
+        }else {
+            initView();
+        }
+
+
     }
 
     @OnClick({R.id.register_left_iv, R.id.register_rig_iv})
@@ -131,4 +141,48 @@ public class LiangFragment extends BaseFragment {
     }
 
 
+    @Override
+    public void disimissProgress() {
+
+    }
+
+    @Override
+    public void loadDataSuccess(DeviceInfo tData) {
+
+        carKey.setText("key:" + tData.getData().getTdevicePO().getDeviceKey());
+        if (tData.getData().getTdeviceDataVO() != null&&tData.getData().getTdeviceDataVO().getRunningSpeed()>0) {
+            carLl.setVisibility(View.GONE);
+            carStatus.setVisibility(View.VISIBLE);
+        } else {
+            carLl.setVisibility(View.VISIBLE);
+            carStatus.setVisibility(View.GONE);
+            homeData.setText(tData.getData().getTdeviceDataVO().getTotalIgnition());
+            homeData2.setText(tData.getData().getTdeviceDataVO().getTotalTravelTime());
+            homeData3.setText(tData.getData().getTdeviceDataVO().getTotalMileage());
+            homeData4.setText((int) tData.getData().getTdeviceDataVO().getCumulativeFuelConsumption());
+            liangData.setText(tData.getData().getTdeviceDataVO().getUrgentAcceleration());
+            liangData2.setText(tData.getData().getTdeviceDataVO().getSharpSlowdown());
+            liangData3.setText(tData.getData().getTdeviceDataVO().getTotalIdleTime());
+            liangData4.setText(tData.getData().getTdeviceDataVO().getAverageHotTime());
+            liangData5.setText(tData.getData().getTdeviceDataVO().getAverageSpeed());
+            liangData6.setText(tData.getData().getTdeviceDataVO().getTotalCumulativeAcceleration());
+        }
+    }
+
+    @Override
+    public void loadDataError(Throwable throwable) {
+
+    }
+    private void initView(){
+         homeData.setText("0");
+         homeData2.setText("0");
+         homeData3.setText("0");
+         homeData4.setText("0");
+         liangData.setText("0");
+         liangData2.setText("0");
+         liangData3.setText("0");
+         liangData4.setText("0");
+         liangData5.setText("0");
+         liangData6.setText("0");
+    }
 }

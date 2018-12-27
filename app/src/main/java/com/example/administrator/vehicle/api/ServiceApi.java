@@ -7,6 +7,7 @@ import com.example.administrator.vehicle.bean.Device;
 import com.example.administrator.vehicle.bean.DeviceInfo;
 import com.example.administrator.vehicle.bean.Msg;
 import com.example.administrator.vehicle.bean.User;
+import com.example.administrator.vehicle.bean.Userinfo;
 
 import java.util.Map;
 
@@ -25,25 +26,36 @@ public interface ServiceApi {
     //获取验证码
     @POST("/appuser/sendSMS?")
     Observable<Code> getCode(@Query("phone") String phoneNumber);
+
     //注册
     @POST("/appregistration/phoneRegistration?")
-    Observable<Msg> phoneRegistration(@QueryMap Map<String, String> map );
+    Observable<Msg> phoneRegistration(@QueryMap Map<String, String> map);
+
     //登录
     @POST("/jwt/auth?")
-    Observable<User> Login(@Query("loginId") String loginId,@Query("passWord") String passWord);
+    Observable<User> Login(@Query("loginId") String loginId, @Query("passWord") String passWord);
+
     //修改密码
     @POST("/appuser/modifyPwd?")
     Observable<Msg> modifyPwd(@QueryMap Map<String, String> map);
+
     //首页数据
     @POST("/appuser/index")
     Observable<DeviceInfo> getIndext(@Query("deviceId") String deviceId, @Query("frameNo") String frameNo, @Header("Authorization") String token);
+
     //设备列表
     @POST("/appuser/deviceList")
     Observable<Device> deviceList(@Query("consumerCode") String consumerCode, @Header("Authorization") String token);
+
     //绑定设备
     @POST("/appmerchants/userBindingDevice")
-    Observable<Msg> userBindingDevice(@QueryMap Map<String, String> map,@Header("Authorization") String token);
+    Observable<Msg> userBindingDevice(@QueryMap Map<String, String> map, @Header("Authorization") String token);
 
+    //社区
     @POST("/appmoments/list")
     Observable<Appmoments> appmoments(@QueryMap Map<String, String> map, @Header("Authorization") String token);
+
+    //最新故障
+    @POST("/appdevice/findFaultNew")
+    Observable<Userinfo> personalCenter(@Query("deviceId") String deviceId,@Query("frameNo") String frameNo, @Header("Authorization") String token);
 }

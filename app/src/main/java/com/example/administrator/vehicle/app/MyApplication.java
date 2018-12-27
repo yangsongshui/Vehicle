@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
+import com.example.administrator.vehicle.bean.Device;
 import com.example.administrator.vehicle.bean.User;
 import com.example.administrator.vehicle.util.AppContextUtil;
 import com.example.administrator.vehicle.util.Log;
@@ -29,6 +30,7 @@ public class MyApplication extends Application {
     public static Map<String, Integer> mMap = new HashMap<>();
     private String token;
 
+    Device.DataBean device;
     /**
      * 获取单例
      *
@@ -128,5 +130,12 @@ public class MyApplication extends Application {
 
     public void setToken(String token) {
         this.token = "CheJianToken"+token;
+    }
+    public Device.DataBean getDevice() {
+        return device;
+    }
+
+    public void setDevice(Device.DataBean device) {
+        this.device = device;
     }
 }

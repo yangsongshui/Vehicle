@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.vehicle.R;
+import com.example.administrator.vehicle.bean.Appmoments;
 import com.example.administrator.vehicle.bean.ItemArticle;
 import com.ocnyang.pagetransformerhelp.BannerItemBean;
 import com.ocnyang.pagetransformerhelp.BannerViewPager;
@@ -20,13 +21,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder>{
-    private ArrayList<ItemArticle> mData;
+    private Appmoments mData;
     Context mContext;
-    public QuAdapter(ArrayList<ItemArticle> data ,Context context) {
+    public QuAdapter(Appmoments data ,Context context) {
         this.mData = data;
         this.mContext = context;
     }
-    public void updateData(ArrayList<ItemArticle> data) {
+    public void updateData(Appmoments data) {
         this.mData = data;
         notifyDataSetChanged();
     }
@@ -44,13 +45,22 @@ public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         // 绑定数据
-        ItemArticle item=mData.get(position);
+        Appmoments.DataBeanX.DataBean item=mData.getData().getData().get(position);
         viewHolder.title.setText(item.getTitle());
-        viewHolder.name.setText(item.getName());
-        viewHolder.like.setText(item.getLike());
-        viewHolder.comments.setText(item.getComments());
-        viewHolder.collect.setImageResource(item.getCollect()==0?R.drawable.community_collect:R.drawable.forgot_del);
-        viewHolder.pager.setData(getViewPagerDatas(item.getmData()),
+        viewHolder.name.setText(item.getUserName());
+        viewHolder.like.setText(item.getAgreenTimes()+"");
+        viewHolder.comments.setText(item.getCommentsTimes()+"");
+        viewHolder.community_like.setImageResource(item.getAgreenForMe().equals("0")?R.drawable.community_collect:R.drawable.forgot_del);
+        viewHolder.collect.setImageResource(item.getCllectForMe().equals("0")?R.drawable.community_collect:R.drawable.forgot_del);
+        String[] a ;
+        if (item.getResourcePath().indexOf(",")>0){
+            a = item.getResourcePath().split(",");
+        }else {
+            a=new String[1];
+            a[0]=item.getResourcePath();
+        }
+
+        viewHolder.pager.setData(getViewPagerDatas(a),
                 new ImageLoaderInterface() {
                     @Override
                     public void displayImage(Context context, Object imgPath, ImageView imageView) {
@@ -63,9 +73,9 @@ public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return mData == null ? 0 : mData.size();
+        return mData.getData() == null ? 0 : mData.getData().getData().size();
     }
-    private List<BannerItemBean> getViewPagerDatas(int[]  mData) {
+    private List<BannerItemBean> getViewPagerDatas(String[]  mData) {
         List<BannerItemBean> pagerItemBeanList = new ArrayList<>(mData.length);
 
         for (int i = 0; i < mData.length; i++) {
@@ -81,6 +91,7 @@ public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder>{
         TextView comments;
         BannerViewPager pager;
         ImageView collect;
+        ImageView community_like;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -89,6 +100,7 @@ public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder>{
             comments =  itemView.findViewById(R.id.item_comments);
             like =  itemView.findViewById(R.id.item_like);
             collect =  itemView.findViewById(R.id.community_collect);
+            community_like =  itemView.findViewById(R.id.community_like);
             pager =  itemView.findViewById(R.id.item_pager);
         }
     }

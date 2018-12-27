@@ -52,7 +52,6 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.ViewHolder
         }
         if (item.getFaultCodes()!=null){
             viewHolder.devicee_start.setText("异常");
-
             viewHolder.devicee_start.setTextColor(mContext.getResources().getColor(R.color.mandy));
         }else {
             viewHolder.devicee_start.setText("正常");
