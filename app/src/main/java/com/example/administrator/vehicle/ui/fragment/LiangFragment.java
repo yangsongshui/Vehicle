@@ -157,14 +157,14 @@ public class LiangFragment extends BaseFragment implements DeviceInfoView {
             carLl.setVisibility(View.VISIBLE);
             carStatus.setVisibility(View.GONE);
             homeData.setText(tData.getData().getTdeviceDataVO().getTotalIgnition());
-            homeData2.setText(tData.getData().getTdeviceDataVO().getTotalTravelTime());
-            homeData3.setText(tData.getData().getTdeviceDataVO().getTotalMileage());
+            homeData2.setText((int) tData.getData().getTdeviceDataVO().getTotalTravelTime());
+            homeData3.setText((int) tData.getData().getTdeviceDataVO().getTotalMileage());
             homeData4.setText((int) tData.getData().getTdeviceDataVO().getCumulativeFuelConsumption());
             liangData.setText(tData.getData().getTdeviceDataVO().getUrgentAcceleration());
             liangData2.setText(tData.getData().getTdeviceDataVO().getSharpSlowdown());
-            liangData3.setText(tData.getData().getTdeviceDataVO().getTotalIdleTime());
-            liangData4.setText(tData.getData().getTdeviceDataVO().getAverageHotTime());
-            liangData5.setText(tData.getData().getTdeviceDataVO().getAverageSpeed());
+            liangData3.setText((int) tData.getData().getTdeviceDataVO().getTotalIdleTime());
+            liangData4.setText((int) tData.getData().getTdeviceDataVO().getAverageHotTime());
+            liangData5.setText((int) tData.getData().getTdeviceDataVO().getAverageSpeed());
             liangData6.setText(tData.getData().getTdeviceDataVO().getTotalCumulativeAcceleration());
         }
     }

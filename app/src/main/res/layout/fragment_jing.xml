@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/car_warning1"
                 android:layout_marginStart="@dimen/dp_5"
-                android:text="160 bar"
+                android:text="0 bar"
                 android:textColor="@color/black" />
 
 
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_5"
             android:layout_marginEnd="@dimen/dp_5"
-            android:text="239"
+            android:text="0"
             android:textColor="@color/black" />
 
         <View
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/car_warning2"
                 android:layout_marginStart="@dimen/dp_5"
-                android:text="160 bar"
+                android:text="0 bar"
                 android:textColor="@color/black" />
 
 
@@ -132,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/car_warning3"
                 android:layout_marginStart="@dimen/dp_5"
-                android:text="160 bar"
+                android:text="0 bar"
                 android:textColor="@color/black" />
 
 
@@ -159,7 +159,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_5"
             android:layout_marginEnd="@dimen/dp_5"
-            android:text="239"
+            android:text="0"
             android:textColor="@color/black" />
 
         <View
@@ -183,7 +183,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/car_warning4"
             android:layout_marginStart="@dimen/dp_5"
-            android:text="160 bar"
+            android:text="0 bar"
             android:textColor="@color/black" />
             <TextView
                 android:id="@+id/bright"

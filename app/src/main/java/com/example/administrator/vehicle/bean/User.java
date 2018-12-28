@@ -6,23 +6,16 @@ package com.example.administrator.vehicle.bean;
 
 public class User {
 
+
     /**
-     * data : {"userJson":{"lastPasswordResetDate":1541598964000,"nickName":"管理员","passWord":"Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E","roleType":"0","userCode":"admin","userPhone":"admin","validind":"1","identificationCode":"123123123","photo":"https://1123123123123","sex":"0","birthday":"1993-12-23 hh:MM:ss","address":"啊额的撒大","autograph":"签名","remark":"备注"},"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1NDQwODEzNjA4NTgsImV4cCI6MTU0NDA4MzE2MH0.GSgCDrtKJ8EEmkoLoDupQnmZdduQC0MG0Q5IZGtSf0zx9551r_zrGn6y2QN7gJCr_e3B6uMt8IihrsY0wTY_mA"}
      * status : 0
      * statusText : Success
+     * data : {"userJson":{"userCode":"U2018000003","identificationCode":"","passWord":"Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E","nickName":"","userPhone":"18664570155","roleType":"1","photo":"","sex":"","birthday":"","address":"","autograph":"","lastPasswordResetDate":"","remark":"","validind":"1"},"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVMjAxODAwMDAwMyIsImNyZWF0ZWQiOjE1NDU5NzU4MzQxODcsImV4cCI6MTU0NTk3NzYzNH0.DP2OquyoAdDpggZMr1gOaEowMkSBj7Aubmks0q3iXf5uFbKf2DezOC7vaOrdLY9Lx4ygOI3arJP9lArqkUCiag"}
      */
 
-    private DataBean data;
     private int status;
     private String statusText;
-
-    public DataBean getData() {
-        return data;
-    }
-
-    public void setData(DataBean data) {
-        this.data = data;
-    }
+    private DataBean data;
 
     public int getStatus() {
         return status;
@@ -40,10 +33,18 @@ public class User {
         this.statusText = statusText;
     }
 
+    public DataBean getData() {
+        return data;
+    }
+
+    public void setData(DataBean data) {
+        this.data = data;
+    }
+
     public static class DataBean {
         /**
-         * userJson : {"lastPasswordResetDate":1541598964000,"nickName":"管理员","passWord":"Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E","roleType":"0","userCode":"admin","userPhone":"admin","validind":"1","identificationCode":"123123123","photo":"https://1123123123123","sex":"0","birthday":"1993-12-23 hh:MM:ss","address":"啊额的撒大","autograph":"签名","remark":"备注"}
-         * token : eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE1NDQwODEzNjA4NTgsImV4cCI6MTU0NDA4MzE2MH0.GSgCDrtKJ8EEmkoLoDupQnmZdduQC0MG0Q5IZGtSf0zx9551r_zrGn6y2QN7gJCr_e3B6uMt8IihrsY0wTY_mA
+         * userJson : {"userCode":"U2018000003","identificationCode":"","passWord":"Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E","nickName":"","userPhone":"18664570155","roleType":"1","photo":"","sex":"","birthday":"","address":"","autograph":"","lastPasswordResetDate":"","remark":"","validind":"1"}
+         * token : eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVMjAxODAwMDAwMyIsImNyZWF0ZWQiOjE1NDU5NzU4MzQxODcsImV4cCI6MTU0NTk3NzYzNH0.DP2OquyoAdDpggZMr1gOaEowMkSBj7Aubmks0q3iXf5uFbKf2DezOC7vaOrdLY9Lx4ygOI3arJP9lArqkUCiag
          */
 
         private UserJsonBean userJson;
@@ -67,51 +68,51 @@ public class User {
 
         public static class UserJsonBean {
             /**
-             * lastPasswordResetDate : 1541598964000
-             * nickName : 管理员
+             * userCode : U2018000003
+             * identificationCode :
              * passWord : Digest_MD5_E1-0A-DC-39-49-BA-59-AB-BE-56-E0-57-F2-0F-88-3E
-             * roleType : 0
-             * userCode : admin
-             * userPhone : admin
+             * nickName :
+             * userPhone : 18664570155
+             * roleType : 1
+             * photo :
+             * sex :
+             * birthday :
+             * address :
+             * autograph :
+             * lastPasswordResetDate :
+             * remark :
              * validind : 1
-             * identificationCode : 123123123
-             * photo : https://1123123123123
-             * sex : 0
-             * birthday : 1993-12-23 hh:MM:ss
-             * address : 啊额的撒大
-             * autograph : 签名
-             * remark : 备注
              */
 
-            private long lastPasswordResetDate;
-            private String nickName;
-            private String passWord;
-            private String roleType;
             private String userCode;
-            private String userPhone;
-            private String validind;
             private String identificationCode;
+            private String passWord;
+            private String nickName;
+            private String userPhone;
+            private String roleType;
             private String photo;
             private String sex;
             private String birthday;
             private String address;
             private String autograph;
+            private String lastPasswordResetDate;
             private String remark;
+            private String validind;
 
-            public long getLastPasswordResetDate() {
-                return lastPasswordResetDate;
+            public String getUserCode() {
+                return userCode;
             }
 
-            public void setLastPasswordResetDate(long lastPasswordResetDate) {
-                this.lastPasswordResetDate = lastPasswordResetDate;
+            public void setUserCode(String userCode) {
+                this.userCode = userCode;
             }
 
-            public String getNickName() {
-                return nickName;
+            public String getIdentificationCode() {
+                return identificationCode;
             }
 
-            public void setNickName(String nickName) {
-                this.nickName = nickName;
+            public void setIdentificationCode(String identificationCode) {
+                this.identificationCode = identificationCode;
             }
 
             public String getPassWord() {
@@ -122,20 +123,12 @@ public class User {
                 this.passWord = passWord;
             }
 
-            public String getRoleType() {
-                return roleType;
+            public String getNickName() {
+                return nickName;
             }
 
-            public void setRoleType(String roleType) {
-                this.roleType = roleType;
-            }
-
-            public String getUserCode() {
-                return userCode;
-            }
-
-            public void setUserCode(String userCode) {
-                this.userCode = userCode;
+            public void setNickName(String nickName) {
+                this.nickName = nickName;
             }
 
             public String getUserPhone() {
@@ -146,20 +139,12 @@ public class User {
                 this.userPhone = userPhone;
             }
 
-            public String getValidind() {
-                return validind;
+            public String getRoleType() {
+                return roleType;
             }
 
-            public void setValidind(String validind) {
-                this.validind = validind;
-            }
-
-            public String getIdentificationCode() {
-                return identificationCode;
-            }
-
-            public void setIdentificationCode(String identificationCode) {
-                this.identificationCode = identificationCode;
+            public void setRoleType(String roleType) {
+                this.roleType = roleType;
             }
 
             public String getPhoto() {
@@ -202,12 +187,28 @@ public class User {
                 this.autograph = autograph;
             }
 
+            public String getLastPasswordResetDate() {
+                return lastPasswordResetDate;
+            }
+
+            public void setLastPasswordResetDate(String lastPasswordResetDate) {
+                this.lastPasswordResetDate = lastPasswordResetDate;
+            }
+
             public String getRemark() {
                 return remark;
             }
 
             public void setRemark(String remark) {
                 this.remark = remark;
+            }
+
+            public String getValidind() {
+                return validind;
+            }
+
+            public void setValidind(String validind) {
+                this.validind = validind;
             }
         }
     }

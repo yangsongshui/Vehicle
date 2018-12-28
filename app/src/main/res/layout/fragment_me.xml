@@ -20,7 +20,7 @@
             android:layout_width="@dimen/dp_75"
             android:layout_height="@dimen/dp_75"
             android:layout_margin="@dimen/dp_10"
-            android:src="@drawable/label_logo" />
+            android:src="@drawable/user_normal" />
 
         <TextView
             android:id="@+id/me_name"
@@ -51,6 +51,7 @@
             android:src="@drawable/business_write" />
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/device_list"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_width="match_parent"
         android:background="@color/white"
@@ -89,6 +90,7 @@
             android:background="@color/text_color" />
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/my_service"
         android:layout_width="match_parent"
         android:background="@color/white"
         android:orientation="horizontal"
@@ -126,6 +128,7 @@
             android:background="@color/text_color" />
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/news_rl"
         android:layout_width="match_parent"
         android:background="@color/white"
         android:orientation="horizontal"
@@ -163,6 +166,7 @@
             android:background="@color/text_color" />
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/setting_rl"
         android:layout_width="match_parent"
         android:background="@color/white"
         android:orientation="horizontal"

@@ -50,8 +50,7 @@ public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder>{
         viewHolder.name.setText(item.getUserName());
         viewHolder.like.setText(item.getAgreenTimes()+"");
         viewHolder.comments.setText(item.getCommentsTimes()+"");
-        viewHolder.community_like.setImageResource(item.getAgreenForMe().equals("0")?R.drawable.community_collect:R.drawable.forgot_del);
-        viewHolder.collect.setImageResource(item.getCllectForMe().equals("0")?R.drawable.community_collect:R.drawable.forgot_del);
+
         String[] a ;
         if (item.getResourcePath().indexOf(",")>0){
             a = item.getResourcePath().split(",");
