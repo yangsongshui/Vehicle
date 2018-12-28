@@ -13,6 +13,7 @@
 
     <uses-feature android:name="android.hardware.camera" /> <!-- 使用照相机权限 -->
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -38,7 +39,9 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".ui.RegisterActivity" />
         <activity android:name=".ui.HomeActivity" />
-        <activity android:name=".ui.DeviceListActivity"></activity>
+        <activity android:name=".ui.DeviceListActivity" />
+        <activity android:name=".ui.BindDeviceActivity" />
+        <activity android:name=".ui.AppmomentsActivity"></activity>
     </application>
 
 </manifest>

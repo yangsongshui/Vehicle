@@ -72,5 +72,9 @@
     <string name="liang_data4">平均热车时间</string>
     <string name="liang_data5">平均车速</string>
     <string name="liang_data6">累计急加速</string>
-
+    <string name="bind_title">绑定设备</string>
+    <string name="binding_msg">请输入设备号</string>
+    <string name="binding_msg2">请输入Key</string>
+    <string name="binding_msg3">配置</string>
+    <string name="binding_msg4">扫描二维码</string>
 </resources>

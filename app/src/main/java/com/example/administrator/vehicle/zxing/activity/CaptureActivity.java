@@ -288,8 +288,8 @@ public class CaptureActivity extends AppCompatActivity implements Callback, MsgV
 //            this.setResult(RESULT_CODE_QR_SCAN, resultIntent);
             User user = MyApplication.newInstance().getUser();
             //String scanResult = resultString.getText();
-            String sn = resultString.substring(0, resultString.indexOf("-")).toLowerCase();
-            String key = resultString.substring(resultString.indexOf("-") + 1, resultString.length());
+            String sn = resultString.substring(0, resultString.indexOf("#")).toLowerCase();
+            String key = resultString.substring(resultString.indexOf("#") + 1, resultString.length());
             // progressDialog.show();
             Log.e("sn",sn);
             Log.e("key",key);
