@@ -41,7 +41,11 @@
         <activity android:name=".ui.HomeActivity" />
         <activity android:name=".ui.DeviceListActivity" />
         <activity android:name=".ui.BindDeviceActivity" />
-        <activity android:name=".ui.AppmomentsActivity"></activity>
+        <activity android:name=".ui.CarServicesActivity" />
+        <activity android:name=".ui.ErrorCodeActivity" />
+        <activity android:name=".ui.AppmomentsInfoActivity" />
+        <activity android:name=".ui.SettingActivity" />
+        <activity android:name=".ui.MyInfoActivity"></activity>
     </application>
 
 </manifest>

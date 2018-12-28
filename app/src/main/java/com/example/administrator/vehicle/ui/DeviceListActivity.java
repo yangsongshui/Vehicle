@@ -92,28 +92,10 @@ public class DeviceListActivity extends BaseActivity implements DeviceView {
                 finish();
                 break;
             case R.id.device_add:
-                if (isCameraCanUse()) {
-                    Intent intent = new Intent(this, CaptureActivity.class);
-                    startActivityForResult(intent, REQUEST_CODE);
-                }
+            startActivity(new Intent(this,BindDeviceActivity.class));
 
                 break;
         }
-    }
-    public static boolean isCameraCanUse() {
-        boolean canUse = true;
-        Camera mCamera = null;
-        try {
-            mCamera = Camera.open();
-        } catch (Exception e) {
-            canUse = false;
-        }
-        if (canUse) {
-            if (mCamera != null)
-                mCamera.release();
-            mCamera = null;
-        }
-        return canUse;
     }
 
 

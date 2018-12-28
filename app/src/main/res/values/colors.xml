@@ -24,14 +24,12 @@
     <color name="mandy">#f85a51</color>
     <color name="text_color">#e4e4e4</color>
     <color name="zircon">#4e4b53</color>
-
+    <color name="alabaster">#333333</color>
     <color name="zumthor">#EDF6FC</color>
-
+    <color name="spindle">#959595</color>
     <color name="accent_bottom_navigation">#25C48A</color>
-    <color name="alabaster">#FAFAFA</color>
+    <color name="carmine_pink">#8f8f8f</color>
 
-    <color name="spindle">#BDD3F3</color>
-    <color name="carmine_pink">#EC4856</color>
     <color name="tan_hide">#F2995C</color>
     <color name="iron">#D6D7DC</color>
     <color name="lily_white">#e1e1e1</color>

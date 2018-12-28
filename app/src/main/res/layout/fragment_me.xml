@@ -144,7 +144,7 @@
         <TextView
             android:id="@+id/my_3"
             android:layout_width="wrap_content"
-            android:text="@string/my_1"
+            android:text="@string/my_3"
             android:layout_toEndOf="@+id/iv3"
             android:textColor="@color/hei"
             android:textSize="@dimen/sp_15"

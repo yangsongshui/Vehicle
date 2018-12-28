@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -20,17 +21,21 @@ import com.ocnyang.pagetransformerhelp.ImageLoaderInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder>{
+public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder> {
     private Appmoments mData;
     Context mContext;
-    public QuAdapter(Appmoments data ,Context context) {
+    private OnMyItemClickListener listener;
+
+    public QuAdapter(Appmoments data, Context context) {
         this.mData = data;
         this.mContext = context;
     }
+
     public void updateData(Appmoments data) {
         this.mData = data;
         notifyDataSetChanged();
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -45,18 +50,26 @@ public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         // 绑定数据
-        Appmoments.DataBeanX.DataBean item=mData.getData().getData().get(position);
+        Appmoments.DataBeanX.DataBean item = mData.getData().getData().get(position);
         viewHolder.title.setText(item.getTitle());
         viewHolder.name.setText(item.getUserName());
-        viewHolder.like.setText(item.getAgreenTimes()+"");
-        viewHolder.comments.setText(item.getCommentsTimes()+"");
-
-        String[] a ;
-        if (item.getResourcePath().indexOf(",")>0){
+        viewHolder.like.setText(item.getAgreenTimes() + "");
+        viewHolder.comments.setText(item.getCommentsTimes() + "");
+        viewHolder.item_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.mLongClick(v, position);
+                    listener.myClick(v, position);
+                }
+            }
+        });
+        String[] a;
+        if (item.getResourcePath().indexOf(",") > 0) {
             a = item.getResourcePath().split(",");
-        }else {
-            a=new String[1];
-            a[0]=item.getResourcePath();
+        } else {
+            a = new String[1];
+            a[0] = item.getResourcePath();
         }
 
         viewHolder.pager.setData(getViewPagerDatas(a),
@@ -74,14 +87,29 @@ public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder>{
     public int getItemCount() {
         return mData.getData() == null ? 0 : mData.getData().getData().size();
     }
-    private List<BannerItemBean> getViewPagerDatas(String[]  mData) {
+
+    private List<BannerItemBean> getViewPagerDatas(String[] mData) {
         List<BannerItemBean> pagerItemBeanList = new ArrayList<>(mData.length);
 
         for (int i = 0; i < mData.length; i++) {
-            pagerItemBeanList.add(new BannerItemBean(mData[i], "" ));
+            pagerItemBeanList.add(new BannerItemBean(mData[i], ""));
         }
         return pagerItemBeanList;
     }
+
+    public void setOnMyItemClickListener(OnMyItemClickListener listener) {
+        this.listener = listener;
+
+    }
+
+    public interface OnMyItemClickListener {
+        void myClick(View v, int pos);
+
+        void mLongClick(View v, int pos);
+
+
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
@@ -91,16 +119,18 @@ public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder>{
         BannerViewPager pager;
         ImageView collect;
         ImageView community_like;
+        LinearLayout item_ll;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            title =  itemView.findViewById(R.id.item_title);
-            name =  itemView.findViewById(R.id.item_name);
-            comments =  itemView.findViewById(R.id.item_comments);
-            like =  itemView.findViewById(R.id.item_like);
-            collect =  itemView.findViewById(R.id.community_collect);
-            community_like =  itemView.findViewById(R.id.community_like);
-            pager =  itemView.findViewById(R.id.item_pager);
+            title = itemView.findViewById(R.id.item_title);
+            name = itemView.findViewById(R.id.item_name);
+            comments = itemView.findViewById(R.id.item_comments);
+            like = itemView.findViewById(R.id.item_like);
+            collect = itemView.findViewById(R.id.community_collect);
+            community_like = itemView.findViewById(R.id.community_like);
+            pager = itemView.findViewById(R.id.item_pager);
+            item_ll = itemView.findViewById(R.id.item_ll);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.example.administrator.vehicle.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -58,6 +59,7 @@ public class HomeActivity extends BaseActivity implements DeviceView {
     @OnClick(R.id.home_jian)
     public void onViewClicked() {
         //点击中间车间按钮
+        startActivity(new Intent(this,CarServicesActivity.class));
     }
 
     @Override
