@@ -8,17 +8,17 @@
     android:orientation="vertical"
     tools:context=".ui.fragment.QuFragment">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:gravity="center"
         android:orientation="vertical">
 
         <com.flyco.tablayout.CommonTabLayout
             android:id="@+id/tl_4"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_48"
-            android:layout_gravity="center_horizontal"
             tl:tl_iconVisible="false"
             tl:tl_indicator_color="#090d0c"
             tl:tl_indicator_width="@dimen/dp_25"
@@ -29,7 +29,15 @@
             tl:tl_textSelectColor="#090d0c"
             tl:tl_textUnselectColor="#66090d0c"
             tl:tl_textsize="@dimen/sp_15" />
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/qu_add"
+            android:layout_width="wrap_content"
+            android:src="@drawable/top_add"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dp_10"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/qu_rv"

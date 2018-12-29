@@ -80,7 +80,16 @@ public class QuAdapter extends RecyclerView.Adapter<QuAdapter.ViewHolder> {
                     }
                 }).setPageTransformer(null)//设置切换效果
                 .setAutoPlay(false)//设置是否自动播放
-                .setHaveTitle(false);//设置是否显示标题
+                .setHaveTitle(false)
+        .setOnBannerItemClickListener(new BannerViewPager.OnBannerItemClickListener() {
+            @Override
+            public void OnClickLister(View view, int i) {
+                if (listener != null) {
+                    listener.mLongClick(view, position);
+                    listener.myClick(view, position);
+                }
+            }
+        });//设置是否显示标题
     }
 
     @Override

@@ -15,12 +15,10 @@ import com.example.administrator.vehicle.adapter.QuAdapter;
 import com.example.administrator.vehicle.app.MyApplication;
 import com.example.administrator.vehicle.base.BaseFragment;
 import com.example.administrator.vehicle.bean.Appmoments;
-import com.example.administrator.vehicle.bean.ItemArticle;
 import com.example.administrator.vehicle.bean.TabEntity;
 import com.example.administrator.vehicle.presenter.AppmomentsPresenterImp;
 import com.example.administrator.vehicle.ui.AppmomentsInfoActivity;
 import com.example.administrator.vehicle.util.Constan;
-import com.example.administrator.vehicle.util.Toastor;
 import com.example.administrator.vehicle.view.AppmomentsView;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -32,23 +30,25 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class QuFragment extends BaseFragment implements OnTabSelectListener, AppmomentsView, QuAdapter.OnMyItemClickListener {
-    private final int[] mData = {R.drawable.img0, R.drawable.img1, R.drawable.img2, R.drawable.img0, R.drawable.img1, R.drawable.img3, R.drawable.img4, R.drawable.img0, R.drawable.img1,};
     @BindView(R.id.qu_rv)
     RecyclerView quRv;
     @BindView(R.id.tl_4)
     CommonTabLayout mTabLayout_4;
+    Unbinder unbinder;
 
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
     private QuAdapter mAdapter;
 
     private RecyclerView.LayoutManager mLayoutManager;
     AppmomentsPresenterImp presenterImp;
+
     @Override
     protected void initData(View layout, Bundle savedInstanceState) {
         //RecyclerView初始化
@@ -62,11 +62,11 @@ public class QuFragment extends BaseFragment implements OnTabSelectListener, App
         mTabEntities.add(new TabEntity(getActivity().getString(R.string.qu_data2)));
         mTabLayout_4.setTabData(mTabEntities);
         mTabLayout_4.setOnTabSelectListener(this);
-        presenterImp=new AppmomentsPresenterImp(this,getActivity());
-        Map<String,String> map=new HashMap<>();
-        map.put("_pageNo","1");
-        map.put("_pageSize","20");
-        map.put("userCode",MyApplication.newInstance().getUsercoe());
+        presenterImp = new AppmomentsPresenterImp(this, getActivity());
+        Map<String, String> map = new HashMap<>();
+        map.put("_pageNo", "1");
+        map.put("_pageSize", "20");
+        map.put("userCode", MyApplication.newInstance().getUsercoe());
         presenterImp.Registration(map);
         mAdapter.setOnMyItemClickListener(this);
     }
@@ -75,8 +75,6 @@ public class QuFragment extends BaseFragment implements OnTabSelectListener, App
     protected int getContentView() {
         return R.layout.fragment_qu;
     }
-
-
 
 
     @Override
@@ -97,7 +95,7 @@ public class QuFragment extends BaseFragment implements OnTabSelectListener, App
     @Override
     public void loadDataSuccess(Appmoments tData) {
         toastor.showSingletonToast(Constan.getMsg(tData.getStatus()));
-        if (tData.getStatus()==0){
+        if (tData.getStatus() == 0) {
             mAdapter.updateData(tData);
         }
     }
@@ -109,11 +107,19 @@ public class QuFragment extends BaseFragment implements OnTabSelectListener, App
 
     @Override
     public void myClick(View v, int pos) {
-        startActivity(new Intent(getActivity(),AppmomentsInfoActivity.class));
+        startActivity(new Intent(getActivity(), AppmomentsInfoActivity.class));
     }
 
     @Override
     public void mLongClick(View v, int pos) {
 
+    }
+
+
+
+
+    @OnClick(R.id.qu_add)
+    public void onViewClicked() {
+        //发表帖子
     }
 }

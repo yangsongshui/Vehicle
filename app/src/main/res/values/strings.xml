@@ -110,5 +110,7 @@
     <string name="my_info_mgs4">性别</string>
     <string name="my_info_mgs5">所在地</string>
     <string name="my_info_mgs6">签名</string>
+    <string name="qu_pop1">图片</string>
+    <string name="qu_pop2">视频</string>
 
 </resources>

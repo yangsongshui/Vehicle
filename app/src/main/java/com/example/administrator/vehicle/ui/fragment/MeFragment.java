@@ -16,6 +16,7 @@ import com.example.administrator.vehicle.base.IBaseView;
 import com.example.administrator.vehicle.bean.User;
 import com.example.administrator.vehicle.bean.Userinfo;
 import com.example.administrator.vehicle.ui.DeviceListActivity;
+import com.example.administrator.vehicle.ui.SettingActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -83,6 +84,7 @@ public class MeFragment extends BaseFragment implements IBaseView<Userinfo> {
             case R.id.news_rl:
                 break;
             case R.id.setting_rl:
+                startActivity(new Intent(getActivity(),SettingActivity.class));
                 break;
         }
     }
